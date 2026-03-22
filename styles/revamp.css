@@ -1372,15 +1372,26 @@ body::before {
 body { animation: pgFadeIn 0.42s ease both; }
 
 /* ── Button shine sweep ── */
-.btn-primary, .nav-cta, .hero-preview-cta, .prod-enquire-btn { position:relative; overflow:hidden; }
-.btn-primary::after, .nav-cta::after {
-  content:'';
-  position:absolute; inset:0;
-  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 0.55s ease;
+.btn-primary, .nav-cta, .hero-preview-cta, .prod-enquire-btn {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;      /* prevent text wrapping inside button */
 }
-.btn-primary:hover::after, .nav-cta:hover::after { transform: translateX(120%); }
+.btn-primary::after, .nav-cta::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%;        /* start off-screen left as a stripe, NOT inset:0 */
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
+  transform: skewX(-15deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+  z-index: 0;                /* behind text content */
+}
+.btn-primary:hover::after, .nav-cta:hover::after { left: 130%; }
+/* Ensure button text/icon stay above the shine stripe */
+.btn-primary > *, .nav-cta > * { position: relative; z-index: 1; }
 
 /* ── Nav link animated underline ── */
 .nav-links a, .nav-link { position:relative !important; }
