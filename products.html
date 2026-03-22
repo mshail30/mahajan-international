@@ -939,61 +939,111 @@
     .prod-section-img {
       width: min(100%, 460px);
     }
+    /* ── Universal Image Carousel (desktop + mobile) ── */
+    .prod-thumbs { display: none; }
     .prod-gallery {
       display: flex;
-      flex-direction: row;
-      height: 100%;
-      width: 100%;
-      min-height: 360px;
-    }
-    .prod-thumbs {
-      display: flex;
       flex-direction: column;
-      gap: 6px;
-      padding: 8px 6px;
-      background: #f0f0f0;
-      width: 76px;
-      flex-shrink: 0;
-      overflow-y: auto;
-      scrollbar-width: thin;
+      width: 100%;
+      height: 420px;
     }
-    .prod-thumb {
-      width: 60px;
-      height: 60px;
-      border: 2px solid transparent;
-      border-radius: 6px;
+    /* Outer clip wrapper — holds track + arrows */
+    .prod-carousel-wrap {
+      flex: 1;
+      position: relative;
       overflow: hidden;
-      cursor: pointer;
-      padding: 0;
-      background: #fff;
-      flex-shrink: 0;
-      transition: border-color 0.2s;
+      width: 100%;
+      background: #f8f8f8;
+      border-radius: 10px 10px 0 0;
     }
-    .prod-thumb:hover { border-color: rgba(201,161,74,0.5); }
-    .prod-thumb.active { border-color: #C9A14A; }
-    .prod-thumb img {
+    /* The scrollable container is now just a clip frame */
+    .prod-main-wrap {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .prod-main-wrap {
-      flex: 1;
       overflow: hidden;
       position: relative;
-      background: #fff;
     }
-    .prod-main-wrap img {
+    .prod-main-wrap > img { display: none; }
+    /* Sliding track — moved via transform */
+    .prod-track {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .prod-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      background: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .prod-slide img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       display: block;
-      transition: opacity 0.25s ease;
     }
+    /* Counter badge */
+    .prod-counter {
+      position: absolute;
+      top: 12px; right: 14px;
+      background: rgba(0,0,0,0.48);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+      z-index: 10;
+    }
+    /* Arrow buttons */
+    .prod-arrow {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(0,0,0,0.12);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      cursor: pointer;
+      z-index: 10;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; line-height: 1;
+      color: #0B1F3A;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+    }
+    .prod-arrow:hover { background: #C9A14A; color: #fff; box-shadow: 0 0 14px rgba(201,161,74,0.55); }
+    .prod-arrow-prev { left: 10px; }
+    .prod-arrow-next { right: 10px; }
+    /* Dot strip */
+    .prod-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 0 8px;
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .prod-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #ddd;
+      border: none; padding: 0;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .prod-dot.active { background: #C9A14A; width: 22px; border-radius: 4px; }
     @media (max-width: 600px) {
-      .prod-gallery { flex-direction: column-reverse; min-height: 280px; }
-      .prod-thumbs { flex-direction: row; width: 100%; height: 68px; overflow-x: auto; overflow-y: hidden; padding: 6px 8px; }
-      .prod-thumb { width: 54px; height: 54px; }
+      .prod-section-img { width: 100%; min-height: 0; }
+      .prod-arrow { width: 30px; height: 30px; font-size: 0.75rem; }
     }
   </style>
   <link rel="stylesheet" href="styles/revamp.css">
@@ -1596,17 +1646,97 @@
 </script>
 
 <script>
-  function switchImg(thumb, src) {
-    const gallery = thumb.closest('.prod-gallery');
-    const mainImg = gallery.querySelector('.prod-main-wrap img');
-    mainImg.style.opacity = '0';
-    setTimeout(() => {
-      mainImg.src = src;
-      mainImg.style.opacity = '1';
-    }, 180);
-    gallery.querySelectorAll('.prod-thumb').forEach(t => t.classList.remove('active'));
-    thumb.classList.add('active');
+  /* ── Universal Transform Carousel (desktop + mobile, circular) ── */
+  function initCarousel() {
+    document.querySelectorAll('.prod-gallery').forEach(gallery => {
+      if (gallery.querySelector('.prod-track')) return;
+
+      const thumbs   = gallery.querySelectorAll('.prod-thumb');
+      const mainWrap = gallery.querySelector('.prod-main-wrap');
+      const total    = thumbs.length;
+      if (!total) return;
+
+      // Wrap mainWrap in carousel wrapper
+      const carouselWrap = document.createElement('div');
+      carouselWrap.className = 'prod-carousel-wrap';
+      mainWrap.parentNode.insertBefore(carouselWrap, mainWrap);
+      carouselWrap.appendChild(mainWrap);
+
+      // Build sliding track + slides
+      const track = document.createElement('div');
+      track.className = 'prod-track';
+      thumbs.forEach(thumb => {
+        const slide = document.createElement('div');
+        slide.className = 'prod-slide';
+        const img = document.createElement('img');
+        img.src  = thumb.querySelector('img').src;
+        img.alt  = thumb.querySelector('img').alt;
+        img.loading = 'lazy';
+        slide.appendChild(img);
+        track.appendChild(slide);
+      });
+      mainWrap.appendChild(track);
+
+      // State
+      let currentIdx = 0;
+
+      const updateUI = () => {
+        track.style.transform = `translateX(-${currentIdx * 100}%)`;
+        counter.textContent   = (currentIdx + 1) + ' / ' + total;
+        dots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
+      };
+
+      // Circular go-to
+      const goTo = (idx) => {
+        currentIdx = ((idx % total) + total) % total;
+        updateUI();
+      };
+
+      // Arrow buttons
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'prod-arrow prod-arrow-prev';
+      prevBtn.innerHTML = '&#8249;';
+      prevBtn.setAttribute('aria-label', 'Previous');
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'prod-arrow prod-arrow-next';
+      nextBtn.innerHTML = '&#8250;';
+      nextBtn.setAttribute('aria-label', 'Next');
+      carouselWrap.appendChild(prevBtn);
+      carouselWrap.appendChild(nextBtn);
+      prevBtn.addEventListener('click', () => goTo(currentIdx - 1));
+      nextBtn.addEventListener('click', () => goTo(currentIdx + 1));
+
+      // Counter badge
+      const counter = document.createElement('div');
+      counter.className = 'prod-counter';
+      counter.textContent = '1 / ' + total;
+      carouselWrap.appendChild(counter);
+
+      // Dot strip
+      const dotsWrap = document.createElement('div');
+      dotsWrap.className = 'prod-dots';
+      const dots = [];
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'prod-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Image ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+      }
+      carouselWrap.insertAdjacentElement('afterend', dotsWrap);
+
+      // Touch swipe support
+      let touchX = 0;
+      mainWrap.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+      mainWrap.addEventListener('touchend',   e => {
+        const diff = touchX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? currentIdx + 1 : currentIdx - 1);
+      }, { passive: true });
+    });
   }
+
+  document.addEventListener('DOMContentLoaded', initCarousel);
 </script>
 
 </body>
