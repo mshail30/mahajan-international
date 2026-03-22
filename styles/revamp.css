@@ -1588,3 +1588,463 @@ input:focus, textarea:focus, select:focus {
   border-color:rgba(201,161,74,0.4) !important;
   transform:translateY(-3px) !important;
 }
+
+
+/* =====================================================
+   PHASE 4 — DEEP COMPONENT REVAMP
+   ===================================================== */
+
+/* ── Scroll progress bar ── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8B6914, #C9A14A 40%, #F4D893 65%, #C9A14A);
+  transform-origin: left center;
+  transform: scaleX(0);
+  z-index: 10001;
+  pointer-events: none;
+  transition: transform 0.1s linear;
+}
+
+/* ── Stats strip — dark glass premium ── */
+.stats-bar, .stats-strip {
+  background: linear-gradient(135deg, #060D1F 0%, #0B1F3A 100%) !important;
+  padding: clamp(2.5rem, 5vw, 4rem) 0 !important;
+  border-top: 1px solid rgba(201,161,74,0.18) !important;
+  border-bottom: 1px solid rgba(201,161,74,0.18) !important;
+}
+.stat-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(201,161,74,0.1);
+  border: 1px solid rgba(201,161,74,0.22);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 0.8rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.stat-icon i { color: #C9A14A; font-size: 1rem; }
+.stat-item:hover .stat-icon {
+  background: rgba(201,161,74,0.18);
+  transform: scale(1.1) rotate(-5deg);
+}
+.stat-num {
+  display: block !important;
+  font-size: clamp(2.4rem, 5vw, 3.6rem) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  margin-bottom: 0.35rem !important;
+}
+.stat-label {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.5) !important;
+  font-weight: 600 !important;
+}
+.stat-item { text-align: center !important; padding: 0 1rem !important; }
+
+/* ── Feature card icon circles ── */
+.feature-icon, .value-icon {
+  width: 54px; height: 54px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(201,161,74,0.12), rgba(201,161,74,0.05));
+  border: 1px solid rgba(201,161,74,0.22);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.2rem;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-icon i, .value-icon i { color: #C9A14A !important; font-size: 1.3rem; }
+.feature-card:hover .feature-icon,
+.value-card:hover .value-icon {
+  background: linear-gradient(135deg, #C9A14A, #8B6914) !important;
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(201,161,74,0.38);
+  transform: rotate(-6deg) scale(1.1);
+}
+.feature-card:hover .feature-icon i,
+.value-card:hover .value-icon i { color: #fff !important; }
+
+/* ── Route flow nodes ── */
+.route-node {
+  background: linear-gradient(160deg, #f8f9fb, #fff);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(11,31,58,0.07) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.route-node::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #C9A14A, #E8C050);
+}
+.route-node:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(201,161,74,0.15); }
+.route-node span {
+  display: block;
+  font-size: 0.63rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: #C9A14A; margin-bottom: 0.35rem;
+}
+.route-node strong { font-size: 0.8rem; color: #0B1F3A; line-height: 1.4; }
+
+/* ── Market chips ── */
+.markets-grid { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; margin-top: 2rem; }
+.market-chip {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.45rem 1.1rem;
+  background: #fff;
+  border: 1.5px solid rgba(11,31,58,0.1);
+  border-radius: 999px;
+  font-size: 0.84rem; font-weight: 500;
+  color: #0B1F3A;
+  cursor: default;
+  transition: all 0.25s ease;
+}
+.market-chip:hover {
+  border-color: #C9A14A;
+  background: rgba(201,161,74,0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(201,161,74,0.18);
+}
+.market-chip .flag { font-size: 1.1rem; }
+
+/* ── Insight / signal panels — gradient border ── */
+.insight-panel {
+  background: linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(145deg, rgba(201,161,74,0.28), rgba(244,216,147,0.5), rgba(201,161,74,0.28)) border-box !important;
+  border: 1.5px solid transparent !important;
+}
+.signal-panel {
+  background: linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(145deg, rgba(11,31,58,0.1), rgba(201,161,74,0.25)) border-box !important;
+  border: 1.5px solid transparent !important;
+}
+
+/* ── Testimonial card upgrade ── */
+.testimonials-section .testimonial-card {
+  padding: 2rem !important;
+}
+.testimonial-stars { margin-bottom: 1rem; }
+.testimonial-stars i { color: #F4D893 !important; font-size: 0.92rem; margin-right: 1px; }
+.testimonial-text {
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+  font-style: italic;
+  color: rgba(255,255,255,0.88) !important;
+  margin-bottom: 1.5rem !important;
+}
+.testimonial-author { display: flex; align-items: center; gap: 0.9rem; }
+.author-avatar {
+  width: 46px !important; height: 46px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #1E3A6E, #0B1F3A) !important;
+  color: #C9A14A !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-weight: 700 !important; font-size: 0.88rem !important;
+  border: 2px solid rgba(201,161,74,0.35) !important;
+  flex-shrink: 0;
+}
+.author-name { color: #fff !important; font-weight: 700; font-size: 0.95rem; }
+.author-role { color: rgba(255,255,255,0.55) !important; font-size: 0.78rem; letter-spacing: 0.06em; }
+
+/* ── Blog magazine section ── */
+.magazine-lead { padding: 0 0 1rem; }
+.magazine-grid {
+  display: grid !important;
+  grid-template-columns: 1.65fr 1fr !important;
+  gap: 1.8rem !important;
+  padding: 3.5rem 0 2rem !important;
+  align-items: stretch !important;
+}
+.mag-feature {
+  position: relative !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  min-height: 460px !important;
+  display: block;
+}
+.mag-feature > img {
+  width: 100%; height: 100%;
+  object-fit: cover !important;
+  display: block;
+  transition: transform 0.6s ease !important;
+}
+.mag-feature:hover > img { transform: scale(1.04) !important; }
+.mag-feature-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(to top, rgba(4,12,28,0.93) 0%, rgba(4,12,28,0.55) 45%, transparent 100%) !important;
+  padding: 2rem !important;
+  display: flex !important; flex-direction: column !important; justify-content: flex-end !important;
+}
+.mag-feature-tag {
+  display: inline-flex; align-items: center;
+  background: #C9A14A !important; color: #060D1F !important;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase;
+  padding: 0.28rem 0.85rem; border-radius: 999px;
+  margin-bottom: 0.9rem; width: fit-content;
+}
+.mag-feature-overlay h2 {
+  color: #fff !important; font-size: clamp(1.25rem, 2.5vw, 1.85rem) !important;
+  line-height: 1.35; margin-bottom: 0.6rem;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+}
+.mag-feature-overlay p { color: rgba(255,255,255,0.75) !important; font-size: 0.88rem; line-height: 1.65; margin-bottom: 1rem; }
+.mag-side {
+  display: flex !important; flex-direction: column !important;
+  background: #fff !important; border-radius: 20px !important;
+  border: 1px solid rgba(11,31,58,0.08) !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 24px rgba(11,31,58,0.07) !important;
+}
+.mag-side h3 {
+  font-family: 'Playfair Display', serif;
+  color: #0B1F3A; font-size: 0.78rem !important;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  padding: 1.2rem 1.5rem 0.9rem;
+  border-bottom: 1px solid rgba(11,31,58,0.07);
+  margin: 0;
+}
+.mag-side-item {
+  display: flex !important; flex-direction: column !important; gap: 0.3rem !important;
+  padding: 1rem 1.5rem !important;
+  border-bottom: 1px solid rgba(11,31,58,0.06) !important;
+  text-decoration: none !important;
+  transition: background 0.2s ease !important;
+}
+.mag-side-item:last-child { border-bottom: none !important; }
+.mag-side-item:hover { background: rgba(201,161,74,0.04) !important; }
+.mag-side-item b { color: #0B1F3A; font-size: 0.87rem; line-height: 1.45; font-family: 'Playfair Display', serif; }
+.mag-side-item span { color: #C9A14A; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ── Blog category tags — gold slide ── */
+.cat-tag {
+  position: relative !important; overflow: hidden !important;
+  transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+  z-index: 0;
+}
+.cat-tag::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #C9A14A, #8B6914);
+  opacity: 0; border-radius: inherit;
+  transition: opacity 0.25s ease;
+  z-index: -1;
+}
+.cat-tag:hover, .cat-tag.active {
+  color: #fff !important; border-color: transparent !important;
+}
+.cat-tag:hover::after, .cat-tag.active::after { opacity: 1 !important; }
+
+/* ── Products page — category color top bars ── */
+.prod-section[id="bedsheets"] .prod-section-inner  { border-top: 3px solid #6B9BD2 !important; }
+.prod-section[id="towels"] .prod-section-inner      { border-top: 3px solid #5BB89A !important; }
+.prod-section[id="turmeric"] .prod-section-inner    { border-top: 3px solid #E5A826 !important; }
+.prod-section[id="chillies"] .prod-section-inner    { border-top: 3px solid #D94F4F !important; }
+.prod-section[id="rice"] .prod-section-inner        { border-top: 3px solid #C4A882 !important; }
+.prod-section[id="pulses"] .prod-section-inner      { border-top: 3px solid #8B6652 !important; }
+.prod-section[id="spices"] .prod-section-inner      { border-top: 3px solid #C87A3A !important; }
+
+/* ── Explorer shell ── */
+.explorer-shell {
+  background: linear-gradient(135deg, #f8f5ef, #fdfaf5) !important;
+  border-top: 1px solid rgba(201,161,74,0.1) !important;
+  border-bottom: 1px solid rgba(201,161,74,0.1) !important;
+}
+.explorer-wrap {
+  padding: 1.8rem 2rem !important;
+  background: #fff !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(201,161,74,0.14) !important;
+  box-shadow: 0 4px 24px rgba(11,31,58,0.06) !important;
+}
+.explorer-chip {
+  border-radius: 999px !important; font-weight: 600 !important; font-size: 0.82rem !important;
+  border: 1.5px solid rgba(11,31,58,0.12) !important;
+  background: #fff !important; color: #5a6070 !important;
+  transition: all 0.22s ease !important;
+}
+.explorer-chip:hover {
+  border-color: #C9A14A !important; color: #8B6914 !important;
+  background: rgba(201,161,74,0.05) !important;
+}
+.explorer-chip.active {
+  background: linear-gradient(135deg, #C9A14A, #8B6914) !important;
+  color: #fff !important; border-color: transparent !important;
+  box-shadow: 0 4px 16px rgba(201,161,74,0.3) !important;
+}
+
+/* ── Page hero eyebrow pill ── */
+.page-hero-eyebrow {
+  display: inline-flex !important; align-items: center; gap: 0.5rem;
+  background: rgba(201,161,74,0.12); border: 1px solid rgba(201,161,74,0.3);
+  color: #F4D893 !important; padding: 0.35rem 1rem; border-radius: 999px;
+  font-size: 0.72rem !important; font-weight: 700 !important; letter-spacing: 0.14em !important;
+  text-transform: uppercase; margin-bottom: 1rem;
+}
+
+/* ── Team card avatar ring ── */
+.team-avatar {
+  margin: 0 auto 1.2rem !important;
+  width: 112px !important; height: 112px !important;
+  border-radius: 50% !important; overflow: hidden !important;
+  border: 3px solid #C9A14A !important;
+  box-shadow: 0 0 0 6px rgba(201,161,74,0.14), 0 8px 28px rgba(11,31,58,0.18) !important;
+  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+.team-card:hover .team-avatar {
+  box-shadow: 0 0 0 8px rgba(201,161,74,0.25), 0 12px 36px rgba(11,31,58,0.22) !important;
+  transform: scale(1.05);
+}
+.team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── Cert badges — gradient border ── */
+.cert-badge {
+  background: linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(145deg, rgba(201,161,74,0.3), rgba(244,216,147,0.5)) border-box !important;
+  border: 1.5px solid transparent !important;
+  border-radius: 16px !important; text-align: center !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+.cert-badge:hover { transform: translateY(-4px) !important; box-shadow: 0 12px 32px rgba(201,161,74,0.18) !important; }
+.cert-badge i { color: #C9A14A !important; font-size: 2rem !important; display: block !important; margin-bottom: 0.75rem !important; }
+
+/* ── Prod section body typography ── */
+.prod-section-body h2 { font-size: clamp(1.35rem, 2.8vw, 1.9rem) !important; color: #0B1F3A; }
+.prod-section-body { padding: clamp(1.5rem, 3vw, 2.5rem) !important; }
+
+/* ── Enquire button ── */
+.prod-enquire-btn, a.prod-enquire-btn {
+  background: linear-gradient(135deg, #C9A14A, #8B6914) !important;
+  color: #fff !important; font-weight: 700 !important;
+  border: none !important; border-radius: 999px !important;
+  padding: 0.8rem 2rem !important;
+  display: inline-flex !important; align-items: center !important; gap: 0.5rem !important;
+  box-shadow: 0 4px 20px rgba(201,161,74,0.3) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+  white-space: nowrap;
+}
+.prod-enquire-btn:hover, a.prod-enquire-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 32px rgba(201,161,74,0.48) !important;
+}
+
+/* ── Blog card body typography ── */
+.blog-card-body h3 {
+  font-size: 1.05rem !important; line-height: 1.45 !important;
+  font-family: 'Playfair Display', serif !important; color: #0B1F3A !important;
+}
+.blog-card-body h3 a:hover { color: #C9A14A !important; }
+.cat-badge {
+  font-weight: 700 !important; letter-spacing: 0.04em !important;
+  border: 1px solid rgba(201,161,74,0.2) !important;
+}
+
+/* ── Newsletter form ── */
+.newsletter-section h2 { color: #fff !important; }
+.newsletter-section .gold-rule { margin-left: auto; margin-right: auto; }
+
+/* ── Cards grid product cards ── */
+.card { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), border-color 0.3s ease !important; }
+.card-tag {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  background: rgba(201,161,74,0.1) !important; color: #8B6914 !important;
+  border: 1px solid rgba(201,161,74,0.2) !important;
+  font-size: 0.72rem !important; font-weight: 700 !important;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.22rem 0.7rem; border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Footer links arrow micro-interaction ── */
+.footer-links a::before {
+  content: '→';
+  display: inline-block;
+  margin-right: 0.4rem;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.footer-links a:hover::before { opacity: 1; transform: translateX(0); }
+
+/* ── Mobile fixes ── */
+@media (max-width: 768px) {
+  /* Magazine grid stack */
+  .magazine-grid { grid-template-columns: 1fr !important; }
+  .mag-feature { min-height: 260px !important; }
+  .mag-side { display: flex; flex-direction: column; gap: 0; }
+
+  /* Stat strip */
+  .stats-strip, .stats-bar { flex-direction: column !important; gap: 0 !important; }
+  .stat-item { padding: 1.2rem 1rem !important; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .stat-item::after { display: none !important; }
+  .stat-num { font-size: clamp(2rem, 8vw, 2.8rem) !important; }
+  .stat-icon { width: 36px !important; height: 36px !important; font-size: 1rem !important; }
+
+  /* Category accent bars — maintain on mobile */
+  .prod-section { border-top-width: 3px !important; }
+
+  /* Route nodes 2-col on tablet */
+  .routes-grid, .route-nodes { grid-template-columns: 1fr 1fr !important; }
+
+  /* Market chips wrap */
+  .markets-wrap, .market-chips { gap: 0.5rem !important; }
+
+  /* Hero cert float */
+  .hero-cert-float { font-size: 0.62rem !important; padding: 0.3rem 0.7rem !important; }
+
+  /* Team avatar sizing */
+  .team-avatar { width: 80px !important; height: 80px !important; }
+
+  /* Testimonial quote mark */
+  .testimonial-card::before { font-size: 5rem !important; top: -0.5rem !important; left: 0.75rem !important; }
+
+  /* Blog card images */
+  .blog-card-img, .blog-card-img img { height: 160px !important; }
+
+  /* Enquire button full-width */
+  .prod-enquire-btn, a.prod-enquire-btn { width: 100% !important; justify-content: center !important; }
+
+  /* Insight/signal panels */
+  .insight-panel, .signal-panel { padding: 1rem !important; }
+
+  /* Scroll reveal — reduce transforms for smaller screens */
+  .sr { transform: translateY(16px) !important; }
+  .sr-left { transform: translateX(-16px) !important; }
+  .sr-right { transform: translateX(16px) !important; }
+
+  /* Cert badges grid */
+  .cert-badges-grid { grid-template-columns: 1fr 1fr !important; gap: 0.75rem !important; }
+
+  /* Footer arrow — hide on mobile to save space */
+  .footer-links a::before { display: none; }
+}
+
+@media (max-width: 480px) {
+  /* Stats further compact */
+  .stat-num { font-size: 2rem !important; }
+
+  /* Magazine feature min-height */
+  .mag-feature { min-height: 200px !important; }
+
+  /* Route nodes single col */
+  .routes-grid, .route-nodes { grid-template-columns: 1fr !important; }
+
+  /* Blog card images */
+  .blog-card-img, .blog-card-img img { height: 140px !important; }
+
+  /* Page hero eyebrow */
+  .page-eyebrow, .hero-eyebrow { font-size: 0.65rem !important; padding: 0.28rem 0.9rem !important; }
+
+  /* Gold rule shorter on tiny screens */
+  .gold-rule::before, .gold-rule::after { width: 12px !important; }
+
+  /* Enquire button */
+  .prod-enquire-btn, a.prod-enquire-btn { padding: 0.7rem 1.2rem !important; font-size: 0.9rem !important; }
+}

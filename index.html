@@ -1522,6 +1522,7 @@
   <link rel="stylesheet" href="styles/mobile.css">
 </head>
 <body>
+<div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ===== HEADER ===== -->
   <header class="header transparent" data-transparent="true">
@@ -1749,18 +1750,22 @@
     <section class="stats-bar intro-strip">
       <div class="container stats-grid">
         <div class="stat-item" data-aos="fade-up">
+          <div class="stat-icon"><i class="fa-solid fa-medal"></i></div>
           <span class="stat-num">2+</span>
           <span class="stat-label">Years of Excellence</span>
         </div>
         <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-icon"><i class="fa-solid fa-earth-asia"></i></div>
           <span class="stat-num">10+</span>
           <span class="stat-label">Countries Served</span>
         </div>
         <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-icon"><i class="fa-solid fa-boxes-stacking"></i></div>
           <span class="stat-num">7</span>
           <span class="stat-label">Product Categories</span>
         </div>
         <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
           <span class="stat-num">100%</span>
           <span class="stat-label">Quality Assured</span>
         </div>
@@ -2411,9 +2416,17 @@
     })();
   </script>
 
-  <!-- Scroll-reveal + stat counter -->
+  <!-- Scroll progress + reveal + counter -->
   <script>
   (function () {
+    /* ── Scroll progress bar ── */
+    var prog = document.getElementById('scroll-progress');
+    if (prog) {
+      window.addEventListener('scroll', function () {
+        var d = document.documentElement;
+        prog.style.transform = 'scaleX(' + Math.min(d.scrollTop / (d.scrollHeight - d.clientHeight), 1) + ')';
+      }, { passive: true });
+    }
     /* ── Scroll reveal for .sr elements ── */
     var srEls = document.querySelectorAll('.sr');
     if (srEls.length && 'IntersectionObserver' in window) {

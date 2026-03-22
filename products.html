@@ -1050,6 +1050,7 @@
   <link rel="stylesheet" href="styles/mobile.css">
 </head>
 <body>
+<div id="scroll-progress" aria-hidden="true"></div>
 
 <!-- ═══════════════ HEADER ═══════════════ -->
 <header class="header scrolled" id="header">
@@ -1737,6 +1738,27 @@
   }
 
   document.addEventListener('DOMContentLoaded', initCarousel);
+
+  // Scroll progress bar
+  (function(){
+    var bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    window.addEventListener('scroll', function(){
+      var s = document.documentElement;
+      var prog = s.scrollTop / (s.scrollHeight - s.clientHeight);
+      bar.style.transform = 'scaleX(' + prog + ')';
+    }, { passive: true });
+  })();
+
+  // Scroll reveal
+  (function(){
+    var els = document.querySelectorAll('.sr, .sr-left, .sr-right');
+    if (!els.length) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(function(el){ io.observe(el); });
+  })();
 </script>
 
 </body>

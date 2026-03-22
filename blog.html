@@ -115,6 +115,7 @@
   <link rel="stylesheet" href="styles/mobile.css">
 </head>
 <body>
+<div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ==================== HEADER ==================== -->
   <header class="header" id="header">
@@ -447,6 +448,13 @@
   </script>
   <script>
   (function () {
+    var prog = document.getElementById('scroll-progress');
+    if (prog) {
+      window.addEventListener('scroll', function () {
+        var d = document.documentElement;
+        prog.style.transform = 'scaleX(' + Math.min(d.scrollTop / (d.scrollHeight - d.clientHeight), 1) + ')';
+      }, { passive: true });
+    }
     var srEls = document.querySelectorAll('.sr');
     if (!srEls.length || !('IntersectionObserver' in window)) return;
     var obs = new IntersectionObserver(function (entries) {
