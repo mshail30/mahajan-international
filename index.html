@@ -1561,6 +1561,10 @@
         <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
         <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
 
+        <div class="hero-cert-float" data-aos="fade-right">
+          <i class="fa-solid fa-certificate"></i> APEDA Registered &nbsp;&middot;&nbsp; FSSAI Licensed &nbsp;&middot;&nbsp; RCMC Holder
+        </div>
+
         <p class="hero-eyebrow" data-aos="fade-right">
           <span class="hero-eyebrow-dot"></span>
           India&rsquo;s Premier Export House &middot; Est. 2025
@@ -1808,6 +1812,7 @@
       <div class="container">
         <div class="section-label" data-aos="fade-up">Our Offerings</div>
         <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100">Featured Products</h2>
+        <div class="gold-rule center" data-aos="fade-up" data-aos-delay="130"></div>
         <p class="section-sub" data-aos="fade-up" data-aos-delay="150">From handwoven textiles to hand-picked spices — every product meets rigorous quality standards before it reaches your doorstep.</p>
 
         <div class="featured-showcase">
@@ -1978,6 +1983,7 @@
       <div class="container">
         <div class="section-label" data-aos="fade-up">Our Strengths</div>
         <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100">Why Choose Mahajan International?</h2>
+        <div class="gold-rule center" data-aos="fade-up" data-aos-delay="130"></div>
         <p class="section-sub" data-aos="fade-up" data-aos-delay="150">Our commitment to quality, compliance and customer satisfaction makes us the preferred sourcing partner for global buyers.</p>
 
         <div class="features-grid">
@@ -2402,6 +2408,47 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     })();
+  </script>
+
+  <!-- Scroll-reveal + stat counter -->
+  <script>
+  (function () {
+    /* ── Scroll reveal for .sr elements ── */
+    var srEls = document.querySelectorAll('.sr');
+    if (srEls.length && 'IntersectionObserver' in window) {
+      var srObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); srObs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+      srEls.forEach(function (el) { srObs.observe(el); });
+    }
+
+    /* ── Animated stat counters ── */
+    var counters = document.querySelectorAll('.stat-num');
+    if (!counters.length || !('IntersectionObserver' in window)) return;
+    var parse  = function (s) { var m = s.match(/[\d.]+/); return m ? parseFloat(m[0]) : 0; };
+    var suffix = function (s) { return s.replace(/[\d.]+/, ''); };
+    var cntObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el  = entry.target;
+        var end = parse(el.textContent);
+        var suf = suffix(el.textContent);
+        var dur = 1400, step = 16;
+        var inc = end / (dur / step);
+        var cur = 0;
+        var isInt = Number.isInteger(end);
+        var timer = setInterval(function () {
+          cur += inc;
+          if (cur >= end) { cur = end; clearInterval(timer); }
+          el.textContent = (isInt ? Math.floor(cur) : cur.toFixed(1)) + suf;
+        }, step);
+        cntObs.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { cntObs.observe(el); });
+  })();
   </script>
 
 </body>

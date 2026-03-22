@@ -298,6 +298,7 @@
         <div class="story-grid">
           <div class="story-text" data-aos="fade-right">
             <span class="section-label">Who We Are</span>
+          <div class="gold-rule"></div>
             <h2 id="story-heading">Delivering India's Finest to <em style="font-style:italic; color:#C9A14A;">Global Markets</em></h2>
             <p>Mahajan International Import Export is a trusted export company dedicated to delivering high-quality Indian products to global markets. With a strong commitment to excellence, we specialise in sourcing, processing, and supplying goods that meet international standards.</p>
             <p>Our strength lies in building direct relationships with farmers, manufacturers, and suppliers across India. This allows us to maintain strict quality control, ensure competitive pricing, and provide consistent product availability.</p>
@@ -373,6 +374,7 @@
         <div style="text-align:center; max-width:600px; margin:0 auto 1rem;" data-aos="fade-up">
           <span class="section-label">Why Choose Us</span>
           <h2 id="values-heading">What Makes Us Different</h2>
+          <div class="gold-rule center"></div>
           <p style="color:#555; line-height:1.8;">Our commitments that shape how we source, sell, and serve every single day.</p>
         </div>
         <div class="values-grid" style="grid-template-columns: repeat(2, 1fr);">
@@ -745,6 +747,40 @@
     backTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  </script>
+
+  <script>
+  (function () {
+    /* Scroll reveal */
+    var srEls = document.querySelectorAll('.sr');
+    if (srEls.length && 'IntersectionObserver' in window) {
+      var srObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); srObs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+      srEls.forEach(function (el) { srObs.observe(el); });
+    }
+    /* Stat counters */
+    var counters = document.querySelectorAll('.stat-num');
+    if (!counters.length || !('IntersectionObserver' in window)) return;
+    var parse  = function (s) { var m = s.match(/[\d.]+/); return m ? parseFloat(m[0]) : 0; };
+    var suffix = function (s) { return s.replace(/[\d.]+/, ''); };
+    var cntObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target, end = parse(el.textContent), suf = suffix(el.textContent);
+        var inc = end / (1400 / 16), cur = 0, isInt = Number.isInteger(end);
+        var timer = setInterval(function () {
+          cur += inc;
+          if (cur >= end) { cur = end; clearInterval(timer); }
+          el.textContent = (isInt ? Math.floor(cur) : cur.toFixed(1)) + suf;
+        }, 16);
+        cntObs.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { cntObs.observe(el); });
+  })();
   </script>
 
 </body>
