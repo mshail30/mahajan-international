@@ -2048,3 +2048,24 @@ input:focus, textarea:focus, select:focus {
   /* Enquire button */
   .prod-enquire-btn, a.prod-enquire-btn { padding: 0.7rem 1.2rem !important; font-size: 0.9rem !important; }
 }
+
+/* ── Nav-CTA active state: outline style so text stays visible ── */
+/* When on contact page, "Get a Quote" button has .active class.
+   revamp.css forces gold gradient background, but inline CSS forces gold text
+   → gold on gold = invisible. This rule fixes it to outline style. */
+.nav-cta.active,
+.nav-cta[aria-current] {
+  background: transparent !important;
+  border: 1.5px solid rgba(201,161,74,0.6) !important;
+  color: #C9A14A !important;
+  box-shadow: none !important;
+}
+
+/* ── Breadcrumb + page-hero: reduce top padding to eliminate excess blank space ── */
+/* Pages with breadcrumb bar already have 40px+ of space below the fixed header.
+   The page-hero's large padding-top (115px) creates too much dead dark area.
+   Bring content closer to the header on these inner pages. */
+.breadcrumb-bar + .page-hero,
+nav.breadcrumb-bar + .page-hero {
+  padding-top: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+}
