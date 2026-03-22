@@ -1,0 +1,750 @@
+/*
+ * mobile.css — Mahajan International
+ * Comprehensive mobile-first responsive overrides
+ * Breakpoints: 1024px | 768px | 600px | 480px | 380px
+ */
+
+/* ============================================================
+   1. BASE / GLOBAL
+   ============================================================ */
+@media (max-width: 1024px) {
+  .container,
+  .container-sm { padding: 0 20px !important; }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .container-sm { padding: 0 18px !important; }
+
+  html { font-size: 15px; }
+
+  .section,
+  .section-sm,
+  .why-section,
+  .products-preview,
+  .products-sections,
+  .cta-section,
+  .testimonials-section,
+  .markets-section {
+    padding-top: clamp(2.4rem, 8vw, 3.5rem) !important;
+    padding-bottom: clamp(2.4rem, 8vw, 3.5rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .container-sm { padding: 0 14px !important; }
+
+  html { font-size: 14px; }
+}
+
+/* ============================================================
+   2. HEADER & NAV
+   ============================================================ */
+@media (max-width: 768px) {
+  /* index.html nav */
+  .nav-links { display: none !important; }
+  .hamburger { display: flex !important; }
+
+  /* products/contact/about/blog nav */
+  .nav-menu { display: none !important; }
+
+  .header,
+  .header.scrolled {
+    padding: 0 !important;
+  }
+
+  .header-inner,
+  .navbar {
+    height: 60px;
+    padding: 0 18px;
+  }
+
+  /* Mobile menu overlay — both implementations */
+  .mobile-menu,
+  .mobile-nav {
+    padding: 5rem 1.5rem 2rem !important;
+    gap: 0.6rem !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    overflow-y: auto;
+  }
+
+  .mobile-menu a,
+  .mob-link {
+    font-size: clamp(1.1rem, 5vw, 1.4rem) !important;
+    padding: 0.7rem 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    width: 100%;
+  }
+
+  .mob-cta-link {
+    margin-top: 1rem !important;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem !important;
+  }
+}
+
+/* ============================================================
+   3. HERO — index.html
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 55% 45% !important;
+    min-height: 85vh;
+  }
+
+  .hero-left {
+    padding: 7rem 2.8rem 3rem 3rem !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .hero-left {
+    padding: 6rem 1.5rem 2.2rem !important;
+    text-align: left;
+  }
+
+  .hero-left::after { display: none !important; }
+
+  .hero h1 {
+    font-size: clamp(2rem, 7vw, 2.8rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-tagline::before {
+    font-size: 0.92rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .hero-cta {
+    flex-wrap: wrap;
+    gap: 0.75rem !important;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-trust {
+    flex-wrap: wrap;
+    gap: 0.6rem !important;
+  }
+
+  .hero-right {
+    padding: 0 1.5rem 2.5rem !important;
+  }
+
+  .hero-illustration-wrap {
+    border-radius: 16px !important;
+  }
+
+  .hero-offer-grid {
+    min-height: 300px !important;
+    grid-template-rows: auto !important;
+  }
+
+  .hero-scroll-hint { left: 50% !important; }
+}
+
+@media (max-width: 600px) {
+  .hero-left { padding: 5.5rem 1.2rem 2rem !important; }
+
+  .hero-offer-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 160px 120px 150px !important;
+    min-height: auto !important;
+  }
+
+  .offer-tile-a { grid-row: auto !important; }
+
+  .hero-offer-pills { flex-wrap: wrap; gap: 6px !important; }
+
+  .hero-eyebrow { font-size: 0.6rem !important; }
+}
+
+@media (max-width: 480px) {
+  .hero-left { padding: 5rem 1rem 1.8rem !important; }
+  .hero h1 { font-size: clamp(1.8rem, 8vw, 2.4rem) !important; }
+}
+
+/* ============================================================
+   4. TICKER
+   ============================================================ */
+@media (max-width: 768px) {
+  .ticker-wrap { overflow: hidden !important; }
+
+  .ticker span {
+    font-size: 0.8rem !important;
+    padding: 0 0.6rem !important;
+  }
+}
+
+/* ============================================================
+   5. STATS BAR
+   ============================================================ */
+@media (max-width: 768px) {
+  .stats-bar { padding: 2.5rem 0 !important; }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  .stat-num { font-size: clamp(2rem, 8vw, 2.8rem) !important; }
+  .stat-label { font-size: 0.82rem !important; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.2rem !important; }
+  .stat-num { font-size: clamp(1.8rem, 9vw, 2.4rem) !important; }
+}
+
+/* ============================================================
+   6. INSIGHT BAND (homepage)
+   ============================================================ */
+@media (max-width: 768px) {
+  .insight-band { padding: 2rem 0 !important; }
+
+  .insight-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .route-flow {
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+  }
+
+  .insight-title { font-size: clamp(1.1rem, 4vw, 1.4rem) !important; }
+}
+
+/* ============================================================
+   7. FEATURED PRODUCTS (homepage)
+   ============================================================ */
+@media (max-width: 1024px) {
+  .featured-showcase {
+    grid-template-columns: 1fr !important;
+  }
+
+  .featured-spotlight { min-height: 320px !important; }
+}
+
+@media (max-width: 768px) {
+  .featured-tile-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .featured-tile { min-height: 160px !important; }
+
+  .featured-rail-item {
+    grid-template-columns: 72px 1fr !important;
+    gap: 0.7rem !important;
+  }
+
+  .featured-rail-item img,
+  .rail-art {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .featured-spotlight {
+    min-height: 280px !important;
+    padding: 1.3rem !important;
+  }
+
+  .featured-spotlight h3 {
+    font-size: clamp(1.15rem, 4vw, 1.5rem) !important;
+    max-width: none !important;
+  }
+
+  .featured-spotlight p { max-width: none !important; }
+
+  .featured-cta-row { flex-direction: column; gap: 0.5rem !important; }
+}
+
+@media (max-width: 600px) {
+  .featured-tile-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .featured-tile b { font-size: 0.88rem !important; }
+  .featured-tile span { font-size: 0.68rem !important; }
+}
+
+@media (max-width: 480px) {
+  .featured-tile-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.6rem !important;
+  }
+
+  .featured-tile { min-height: 130px !important; }
+}
+
+/* ============================================================
+   8. WHY CHOOSE US
+   ============================================================ */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .feature-card { padding: 1.3rem !important; }
+  .feature-icon { width: 52px !important; height: 52px !important; font-size: 1.2rem !important; }
+  .feature-card h3 { font-size: 0.95rem !important; }
+  .feature-card p { font-size: 0.82rem !important; }
+}
+
+@media (max-width: 480px) {
+  .features-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ============================================================
+   9. EXPORT MARKETS
+   ============================================================ */
+@media (max-width: 768px) {
+  .markets-grid { gap: 0.6rem !important; }
+  .market-chip { padding: 0.5rem 1rem !important; font-size: 0.82rem !important; }
+}
+
+@media (max-width: 480px) {
+  .markets-grid { gap: 0.5rem !important; }
+  .market-chip { padding: 0.45rem 0.85rem !important; font-size: 0.78rem !important; }
+}
+
+/* ============================================================
+   10. TESTIMONIALS
+   ============================================================ */
+@media (max-width: 768px) {
+  .testimonials-section { padding: 2.5rem 0 !important; }
+
+  .testimonial-card { padding: 1.4rem !important; }
+  .testimonial-text { font-size: 0.95rem !important; }
+  .author-avatar { width: 40px !important; height: 40px !important; font-size: 0.9rem !important; }
+}
+
+/* ============================================================
+   11. CTA SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+  .cta-section { padding: 2.5rem 0 !important; }
+  .cta-section h2 { font-size: clamp(1.4rem, 5vw, 2rem) !important; }
+  .cta-section .btn-lg { padding: 0.85rem 1.8rem !important; font-size: 0.95rem !important; }
+}
+
+/* ============================================================
+   12. SECTION HEADINGS (global)
+   ============================================================ */
+@media (max-width: 768px) {
+  .section-label { font-size: 0.7rem !important; }
+
+  h2.section-heading,
+  .section-heading {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .section-sub {
+    font-size: 0.9rem !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h2.section-heading,
+  .section-heading {
+    font-size: clamp(1.3rem, 6vw, 1.7rem) !important;
+  }
+}
+
+/* ============================================================
+   13. FOOTER
+   ============================================================ */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 3rem 0 0 !important; }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.8rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .footer h4 { font-size: 0.9rem !important; margin-bottom: 0.8rem !important; }
+  .footer-links a { font-size: 0.82rem !important; }
+  .footer-contact li { font-size: 0.82rem !important; }
+  .footer p { font-size: 0.82rem !important; }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.6rem !important;
+    font-size: 0.76rem !important;
+  }
+
+  /* products.html footer variants */
+  .footer-logo-wrap { margin-bottom: 10px !important; }
+  .footer-desc { font-size: 0.82rem !important; }
+  .footer-bottom-links { gap: 12px !important; }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.4rem !important;
+  }
+}
+
+/* ============================================================
+   14. WHATSAPP FLOAT & BACK-TOP
+   ============================================================ */
+@media (max-width: 768px) {
+  .whatsapp-float,
+  .whatsapp-btn {
+    width: 48px !important;
+    height: 48px !important;
+    bottom: 4.5rem !important;
+    right: 1rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  .back-top,
+  .back-top-btn {
+    width: 40px !important;
+    height: 40px !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* ============================================================
+   15. PAGE HERO (inner pages)
+   ============================================================ */
+@media (max-width: 768px) {
+  .breadcrumb-bar { margin-top: 60px !important; }
+
+  .page-hero {
+    padding: clamp(4.5rem, 12vw, 5.5rem) 0 clamp(2rem, 6vw, 2.8rem) !important;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.7rem !important;
+  }
+
+  .page-hero-sub {
+    font-size: 0.9rem !important;
+    max-width: 100% !important;
+  }
+
+  .page-hero-eyebrow { font-size: 0.65rem !important; }
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    padding: clamp(4rem, 14vw, 5rem) 0 1.8rem !important;
+  }
+
+  .page-hero h1 { font-size: clamp(1.4rem, 7vw, 1.9rem) !important; }
+}
+
+/* ============================================================
+   16. PRODUCTS PAGE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .prod-section-inner,
+  .prod-section-inner.reverse {
+    flex-direction: column !important;
+  }
+
+  .prod-section-img {
+    width: 100% !important;
+    min-height: 280px !important;
+    max-height: 320px !important;
+  }
+
+  .prod-section-body {
+    padding: 1.5rem 1.5rem 1.5rem !important;
+  }
+
+  .prod-section-inner.reverse .prod-section-body {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cat-nav-bar { top: 60px !important; }
+
+  .cat-nav { padding: 8px 0 !important; gap: 3px !important; }
+
+  .cat-nav-link {
+    padding: 7px 13px !important;
+    font-size: 13px !important;
+  }
+
+  .products-sections { padding: 1rem 0 2rem !important; }
+
+  .prod-section { margin-bottom: 2rem !important; scroll-margin-top: 100px !important; }
+
+  .prod-section-img { min-height: 220px !important; max-height: 260px !important; }
+
+  .prod-section-body { padding: 1.2rem !important; }
+
+  .prod-section-body h2 { font-size: clamp(1.2rem, 4vw, 1.6rem) !important; }
+
+  .prod-specs-table td { font-size: 12.5px !important; padding: 6px 0 !important; }
+
+  .prod-badges-row { gap: 6px !important; flex-wrap: wrap; }
+
+  .moq-badge { font-size: 11px !important; padding: 5px 10px !important; }
+
+  .prod-enquire-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 20px !important;
+  }
+
+  .qa-strip { padding: 2.5rem 0 !important; }
+  .qa-certs { gap: 8px !important; }
+  .qa-cert-badge { font-size: 11px !important; padding: 7px 14px !important; }
+}
+
+@media (max-width: 480px) {
+  .prod-section-img { min-height: 190px !important; }
+  .prod-art-icon { font-size: 3.5rem !important; }
+
+  .prod-specs-table .spec-label { width: 42% !important; }
+}
+
+/* ============================================================
+   17. ABOUT PAGE
+   ============================================================ */
+@media (max-width: 768px) {
+  .story-grid,
+  .reach-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .story-img,
+  .reach-img {
+    min-height: 220px !important;
+    max-height: 260px !important;
+    border-radius: 16px !important;
+  }
+
+  .mv-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+
+  .mv-card { padding: 1.4rem !important; }
+
+  .values-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .sourcing-grid { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+
+  .stats-strip-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-grid { grid-template-columns: 1fr !important; }
+  .team-grid { grid-template-columns: 1fr !important; }
+  .sourcing-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ============================================================
+   18. CONTACT PAGE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-layout { gap: 1.2rem !important; }
+
+  .contact-info-card,
+  .contact-form-card { padding: 1.4rem !important; }
+
+  .form-grid { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
+
+  .contact-map-wrap { height: 240px !important; }
+
+  .contact-card { padding: 1.2rem !important; }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px !important; /* prevents zoom on iOS */
+  }
+
+  .success-actions { flex-direction: column !important; align-items: stretch !important; }
+  .success-actions a { text-align: center !important; }
+}
+
+@media (max-width: 480px) {
+  .contact-info-card,
+  .contact-form-card { padding: 1.1rem !important; }
+
+  .contact-map-wrap { height: 200px !important; }
+}
+
+/* ============================================================
+   19. BLOG PAGE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.2rem !important; }
+}
+
+@media (max-width: 768px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem !important; }
+
+  .blog-card-img-link { height: 180px !important; }
+
+  .blog-filter-row { flex-wrap: wrap !important; gap: 0.5rem !important; }
+
+  .cat-tag { padding: 6px 14px !important; font-size: 0.78rem !important; }
+
+  .newsletter-section { padding: 2rem 0 !important; }
+  .newsletter-form { flex-direction: column !important; gap: 0.75rem !important; }
+  .newsletter-form input,
+  .newsletter-form button { width: 100% !important; }
+}
+
+@media (max-width: 480px) {
+  .blog-grid { grid-template-columns: 1fr !important; }
+  .blog-card-img-link { height: 200px !important; }
+}
+
+/* ============================================================
+   20. BLOG POST / ARTICLE
+   ============================================================ */
+@media (max-width: 768px) {
+  .article-layout {
+    grid-template-columns: 1fr !important;
+    max-height: none !important;
+  }
+
+  .article-sidebar { display: none !important; } /* hide sidebar on mobile */
+
+  .article-hero-img { height: 220px !important; border-radius: 14px !important; }
+
+  .article-title { font-size: clamp(1.4rem, 5vw, 1.9rem) !important; }
+
+  .article-body { font-size: 0.95rem !important; line-height: 1.75 !important; }
+
+  .author-bar { flex-wrap: wrap !important; gap: 0.8rem !important; }
+}
+
+@media (max-width: 480px) {
+  .article-hero-img { height: 180px !important; }
+  .article-title { font-size: clamp(1.2rem, 6vw, 1.6rem) !important; }
+}
+
+/* ============================================================
+   21. BUTTONS — global touch targets
+   ============================================================ */
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 0.9rem !important;
+    min-height: 44px; /* touch target */
+  }
+
+  .btn-lg {
+    padding: 0.85rem 1.8rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .nav-cta {
+    padding: 9px 18px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* ============================================================
+   22. CARDS — global
+   ============================================================ */
+@media (max-width: 768px) {
+  .card { border-radius: 14px !important; }
+  .card-img { border-radius: 10px 10px 0 0 !important; }
+  .card-body { padding: 1.1rem !important; }
+  .card h3 { font-size: 1rem !important; }
+  .card p { font-size: 0.84rem !important; }
+
+  .cards-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.9rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ============================================================
+   23. OVERFLOW & SCROLL — prevent horizontal bleed
+   ============================================================ */
+@media (max-width: 768px) {
+  body { overflow-x: hidden; }
+
+  /* Prevent decorative circles from causing scroll */
+  .page-hero::after,
+  .hero::after {
+    display: none !important;
+  }
+
+  .page-hero-pattern { opacity: 0.5; }
+}
+
+/* ============================================================
+   24. VERY SMALL PHONES (< 380px)
+   ============================================================ */
+@media (max-width: 380px) {
+  html { font-size: 13px; }
+
+  .container,
+  .container-sm { padding: 0 12px !important; }
+
+  .hero h1 { font-size: 1.7rem !important; }
+
+  .hero-eyebrow { display: none !important; }
+
+  .market-chip { padding: 0.4rem 0.7rem !important; font-size: 0.72rem !important; }
+
+  .featured-tile-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}

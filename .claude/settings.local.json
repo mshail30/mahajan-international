@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs sed:*)",
+      "Bash(grep -E \"[0-9]{3,}px\")",
+      "Bash(for f:*)",
+      "Bash(do if:*)",
+      "Bash(then sed:*)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(do sed:*)",
+      "Bash(grep -l \"mobile.css\" *.html)"
+    ]
+  }
+}

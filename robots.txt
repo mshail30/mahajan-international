@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.mahajaninternational.com/sitemap.xml
+
+# Disallow development/admin paths (placeholder — update if needed)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.bak$
+Disallow: /*.log$
+
+# Crawl delay for polite bots
+Crawl-delay: 1

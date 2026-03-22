@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Export Insights Blog | Mahajan International Import Export</title>
+  <meta name="description" content="Read industry insights, trade tips, and product guides from Mahajan International. Learn about Indian exports, quality standards, and global trade.">
+  <meta name="keywords" content="Mahajan International, Indian export company, Maharashtra exporter, Solapur bedsheets, Guntur chillies export, turmeric exporter India, basmati rice export, Indian pulses exporter, cotton towels India, APEDA registered exporter, Umerga Maharashtra export">
+  <link rel="canonical" href="https://www.mahajaninternational.com/blog.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:title" content="Export Insights Blog | Mahajan International Import Export">
+  <meta property="og:description" content="Read industry insights, trade tips, and product guides from Mahajan International. Learn about Indian exports, quality standards, and global trade.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    /* === SHARED STYLES === */
+    body { font-family: 'DM Sans', sans-serif; color: #333; background: #FDFAF5; margin: 0; }
+    * { box-sizing: border-box; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: #C9A14A; font-weight: 600; margin-bottom: 0.5rem; display: block; }
+    h2 { font-family: 'Playfair Display', serif; color: #0B1F3A; font-size: clamp(1.8rem,4vw,2.8rem); }
+
+    /* Header */
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: #0B1F3A; transition: all 0.3s; }
+    .header.scrolled { background: rgba(11,31,58,0.97); backdrop-filter: blur(20px); box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-logo { text-decoration: none; }
+    .nav-logo-main { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #fff; display: block; font-weight: 700; }
+    .nav-logo-sub { font-size: 0.65rem; color: #C9A14A; letter-spacing: 0.14em; text-transform: uppercase; display: block; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #C9A14A; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all 0.3s; border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: #0B1F3A; z-index: 999; padding: 5rem 2rem 2rem; flex-direction: column; gap: 1.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: #fff; font-size: 1.3rem; text-decoration: none; font-family: 'Playfair Display', serif; }
+
+    /* Blog Cards */
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 3rem 0 5rem; }
+    .blog-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(11,31,58,0.07); transition: transform 0.3s, box-shadow 0.3s; }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(11,31,58,0.13); }
+    .blog-card-img-link { display: block; height: 220px; overflow: hidden; }
+    .blog-card-img-link img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .blog-card:hover .blog-card-img-link img { transform: scale(1.05); }
+    .blog-card-body { padding: 1.5rem; }
+    .blog-meta { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; margin-bottom: 0.8rem; }
+    .cat-badge { padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; background: rgba(201,161,74,0.12); color: #8B6914; }
+    .blog-date, .blog-time { font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 0.3rem; }
+    .blog-card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #0B1F3A; margin: 0 0 0.6rem; line-height: 1.4; }
+    .blog-card-body h3 a { color: inherit; text-decoration: none; }
+    .blog-card-body h3 a:hover { color: #C9A14A; }
+    .blog-card-body p { font-size: 0.9rem; color: #666; line-height: 1.6; margin-bottom: 1rem; }
+    .btn-link { display: inline-flex; align-items: center; gap: 0.4rem; color: #C9A14A; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: gap 0.2s; }
+    .btn-link:hover { gap: 0.7rem; }
+
+    /* Category filter */
+    .blog-filters { padding: 3rem 0 1rem; display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
+    .cat-tag { padding: 0.5rem 1.2rem; border-radius: 30px; border: 2px solid rgba(11,31,58,0.15); background: #fff; color: #555; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+    .cat-tag:hover, .cat-tag.active { background: #0B1F3A; color: #fff; border-color: #0B1F3A; }
+
+    /* Newsletter */
+    .newsletter-section { background: #0B1F3A; padding: 5rem 0; text-align: center; }
+    .newsletter-section .section-label { color: #C9A14A; }
+    .newsletter-section h2 { color: #fff; margin-bottom: 1rem; }
+    .newsletter-section p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; }
+    .newsletter-form { display: flex; gap: 0.8rem; max-width: 480px; margin: 0 auto; }
+    .newsletter-form input { flex: 1; padding: 0.85rem 1.2rem; border-radius: 6px; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; outline: none; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; border-radius: 6px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .btn-primary { background: #C9A14A; color: #fff; }
+    .btn-primary:hover { background: #b08838; }
+
+    /* Footer */
+    .footer { background: #060F1E; color: rgba(255,255,255,0.75); padding: 5rem 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr 1.2fr; gap: 3rem; margin-bottom: 4rem; }
+    .footer-logo-main { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #fff; display: block; }
+    .footer-logo-sub { font-size: 0.75rem; color: #C9A14A; letter-spacing: 0.12em; text-transform: uppercase; }
+    .footer p { font-size: 0.9rem; line-height: 1.7; margin: 1rem 0; }
+    .footer h4 { color: #fff; font-family: 'Playfair Display', serif; margin-bottom: 1.2rem; font-size: 1rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 0.6rem; }
+    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-links a:hover { color: #C9A14A; }
+    .footer-contact { list-style: none; padding: 0; margin: 0; }
+    .footer-contact li { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; font-size: 0.9rem; }
+    .footer-contact i { color: #C9A14A; margin-top: 3px; flex-shrink: 0; }
+    .social-links { display: flex; gap: 0.8rem; margin-top: 1.2rem; }
+    .social-links a { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); transition: all 0.2s; text-decoration: none; }
+    .social-links a:hover { background: #C9A14A; color: #fff; }
+    .footer-cert-badge { display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid rgba(201,161,74,0.4); border-radius: 4px; font-size: 0.75rem; color: #C9A14A; margin: 0.25rem; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1.5rem 0; text-align: center; font-size: 0.85rem; }
+    .whatsapp-float { position: fixed; bottom: 5.5rem; right: 1.5rem; z-index: 999; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.2s; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .back-top { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; width: 44px; height: 44px; background: #0B1F3A; border-radius: 50%; border: none; cursor: pointer; color: #fff; font-size: 1rem; opacity: 0; visibility: hidden; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+    .back-top.show { opacity: 1; visibility: visible; }
+    .back-top:hover { background: #C9A14A; }
+
+    /* Hidden cards for filter */
+    .blog-card.hidden { display: none; }
+
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr 1fr; } .hamburger { display: flex; } .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } .newsletter-form { flex-direction: column; } }
+    @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="stylesheet" href="styles/revamp.css">
+  <link rel="stylesheet" href="styles/mobile.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-main">Mahajan International</span>
+        <span class="nav-logo-sub">Import Export</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Products</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- ==================== PAGE HERO ==================== -->
+  <section class="page-hero" style="background: linear-gradient(135deg, rgba(11,31,58,0.88) 0%, rgba(11,31,58,0.65) 100%), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&q=90&fit=crop') center/cover no-repeat; padding: 8rem 0 5rem; text-align:center; color:#fff;">
+    <div class="container">
+      <p class="section-label" data-aos="fade-down">Insights &amp; Updates</p>
+      <h1 data-aos="fade-up" style="font-family:'Playfair Display',serif; font-size:clamp(2.5rem,6vw,4rem); color:#fff; text-shadow:0 4px 24px rgba(0,0,0,0.4); margin:0.5rem 0;">Export <em style="color:#C9A14A; font-style:italic">Insights</em></h1>
+      <p data-aos="fade-up" data-aos-delay="100" style="font-size:1.1rem; opacity:0.9; max-width:600px; margin:1rem auto 0;">Trade news, product guides, and market intelligence for global buyers</p>
+    </div>
+  </section>
+
+  <section class="magazine-lead">
+    <div class="container magazine-grid">
+      <article class="mag-feature" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80" alt="Featured export insight">
+        <div class="mag-feature-overlay">
+          <span class="mag-feature-tag">Editor’s Pick</span>
+          <h2>Why Indian Agricultural Products Are in High Demand Globally</h2>
+          <p>A field-level look at sourcing strength, quality systems, and why buyers are increasing long-term procurement from India.</p>
+          <a href="blog-post.html" class="btn-link">Read Featured Story <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+      <aside class="mag-side" data-aos="fade-up" data-aos-delay="110">
+        <h3>Trending Reads</h3>
+        <a class="mag-side-item" href="how-to-choose-right-export-partner-india.html"><b>How to Choose the Right Export Partner from India</b><span>Trade Tips</span></a>
+        <a class="mag-side-item" href="top-export-products-from-india.html"><b>Top Export Products from India You Should Know About</b><span>Product Guides</span></a>
+        <a class="mag-side-item" href="quality-standards-indian-exports.html"><b>Understanding Quality Standards in Indian Exports</b><span>Trade Tips</span></a>
+        <a class="mag-side-item" href="benefits-importing-rice-pulses-india.html"><b>Benefits of Importing Rice and Pulses from India</b><span>Product Guides</span></a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ==================== CATEGORY FILTER ==================== -->
+  <div class="blog-filters container" style="padding-top:3rem; text-align:center;">
+    <button class="cat-tag active" data-category="all">All Posts</button>
+    <button class="cat-tag" data-category="industry-insights">Industry Insights</button>
+    <button class="cat-tag" data-category="trade-tips">Trade Tips</button>
+    <button class="cat-tag" data-category="product-guides">Product Guides</button>
+  </div>
+
+  <!-- ==================== BLOG GRID ==================== -->
+  <div class="container">
+    <div class="blog-grid" id="blogGrid">
+
+      <!-- Card 1: Industry Insights -->
+      <article class="blog-card" data-category="industry-insights" data-aos="fade-up" data-aos-delay="0">
+        <a href="blog-post.html" class="blog-card-img-link">
+          <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80" alt="Why Indian Agricultural Products Are in High Demand Globally" loading="lazy">
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="cat-badge">Industry Insights</span>
+            <span class="blog-date"><i class="fa-regular fa-calendar"></i> June 1, 2025</span>
+            <span class="blog-time"><i class="fa-regular fa-clock"></i> 4 min read</span>
+          </div>
+          <h3><a href="blog-post.html">Why Indian Agricultural Products Are in High Demand Globally</a></h3>
+          <p>India is one of the world's largest producers of agricultural goods, making it a key player in global trade. From rice and pulses to spices like turmeric and chillies, Indian products are known for their quality, variety, and competitive pricing.</p>
+          <div style="font-size:0.8rem; color:#999; margin-bottom:0.8rem;">By <strong style="color:#555;">Mahajan International Team</strong></div>
+          <a href="blog-post.html" class="btn-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 2: Trade Tips -->
+      <article class="blog-card" data-category="trade-tips" data-aos="fade-up" data-aos-delay="100">
+        <a href="how-to-choose-right-export-partner-india.html" class="blog-card-img-link">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80" alt="How to Choose the Right Export Partner from India" loading="lazy">
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="cat-badge">Trade Tips</span>
+            <span class="blog-date"><i class="fa-regular fa-calendar"></i> June 5, 2025</span>
+            <span class="blog-time"><i class="fa-regular fa-clock"></i> 5 min read</span>
+          </div>
+          <h3><a href="how-to-choose-right-export-partner-india.html">How to Choose the Right Export Partner from India</a></h3>
+          <p>Selecting the right export partner is crucial for any international buyer. A reliable exporter ensures product quality, timely delivery, and smooth communication throughout the trade process.</p>
+          <div style="font-size:0.8rem; color:#999; margin-bottom:0.8rem;">By <strong style="color:#555;">Mahajan International Team</strong></div>
+          <a href="how-to-choose-right-export-partner-india.html" class="btn-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 3: Product Guides -->
+      <article class="blog-card" data-category="product-guides" data-aos="fade-up" data-aos-delay="200">
+        <a href="top-export-products-from-india.html" class="blog-card-img-link">
+          <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=800&q=80" alt="Top Export Products from India You Should Know About" loading="lazy">
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="cat-badge">Product Guides</span>
+            <span class="blog-date"><i class="fa-regular fa-calendar"></i> June 10, 2025</span>
+            <span class="blog-time"><i class="fa-regular fa-clock"></i> 5 min read</span>
+          </div>
+          <h3><a href="top-export-products-from-india.html">Top Export Products from India You Should Know About</a></h3>
+          <p>India exports a wide range of products across industries. Some of the top export categories include agricultural goods, textiles, spices, and rice — all areas where Indian quality is globally recognised.</p>
+          <div style="font-size:0.8rem; color:#999; margin-bottom:0.8rem;">By <strong style="color:#555;">Mahajan International Team</strong></div>
+          <a href="top-export-products-from-india.html" class="btn-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 4: Trade Tips -->
+      <article class="blog-card" data-category="trade-tips" data-aos="fade-up" data-aos-delay="0">
+        <a href="quality-standards-indian-exports.html" class="blog-card-img-link">
+          <img src="https://images.unsplash.com/photo-1581093196277-9f6be7a2b9f1?w=800&q=80" alt="Understanding Quality Standards in Indian Exports" loading="lazy">
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="cat-badge">Trade Tips</span>
+            <span class="blog-date"><i class="fa-regular fa-calendar"></i> June 15, 2025</span>
+            <span class="blog-time"><i class="fa-regular fa-clock"></i> 4 min read</span>
+          </div>
+          <h3><a href="quality-standards-indian-exports.html">Understanding Quality Standards in Indian Exports</a></h3>
+          <p>Quality plays a critical role in international trade. Buyers expect products that meet global standards in terms of safety, packaging, and batch-to-batch consistency.</p>
+          <div style="font-size:0.8rem; color:#999; margin-bottom:0.8rem;">By <strong style="color:#555;">Mahajan International Team</strong></div>
+          <a href="quality-standards-indian-exports.html" class="btn-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 5: Product Guides -->
+      <article class="blog-card" data-category="product-guides" data-aos="fade-up" data-aos-delay="100">
+        <a href="benefits-importing-rice-pulses-india.html" class="blog-card-img-link">
+          <img src="https://images.unsplash.com/photo-1536304993881-ff86e0c9c6a3?w=800&q=80" alt="Benefits of Importing Rice and Pulses from India" loading="lazy">
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="cat-badge">Product Guides</span>
+            <span class="blog-date"><i class="fa-regular fa-calendar"></i> June 20, 2025</span>
+            <span class="blog-time"><i class="fa-regular fa-clock"></i> 5 min read</span>
+          </div>
+          <h3><a href="benefits-importing-rice-pulses-india.html">Benefits of Importing Rice and Pulses from India</a></h3>
+          <p>India is one of the world's leading exporters of rice and pulses, offering a wide variety of products at highly competitive prices.</p>
+          <div style="font-size:0.8rem; color:#999; margin-bottom:0.8rem;">By <strong style="color:#555;">Mahajan International Team</strong></div>
+          <a href="benefits-importing-rice-pulses-india.html" class="btn-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 6: Industry Insights -->
+      <article class="blog-card" data-category="industry-insights" data-aos="fade-up" data-aos-delay="200">
+        <a href="why-transparency-matters-international-trade.html" class="blog-card-img-link">
+          <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=80" alt="Why Transparency Matters in International Trade" loading="lazy">
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="cat-badge">Industry Insights</span>
+            <span class="blog-date"><i class="fa-regular fa-calendar"></i> June 25, 2025</span>
+            <span class="blog-time"><i class="fa-regular fa-clock"></i> 4 min read</span>
+          </div>
+          <h3><a href="why-transparency-matters-international-trade.html">Why Transparency Matters in International Trade</a></h3>
+          <p>Transparency is the foundation of every successful global business relationship. In import-export trade, clear communication and honest pricing build the kind of long-term trust that no contract alone can guarantee.</p>
+          <div style="font-size:0.8rem; color:#999; margin-bottom:0.8rem;">By <strong style="color:#555;">Mahajan International Team</strong></div>
+          <a href="why-transparency-matters-international-trade.html" class="btn-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+    </div><!-- /blog-grid -->
+  </div><!-- /container -->
+
+  <!-- ==================== NEWSLETTER CTA ==================== -->
+  <section class="newsletter-section">
+    <div class="container" style="text-align:center; padding: 5rem 0;">
+      <p class="section-label">Stay Updated</p>
+      <h2>Get Export Insights in Your Inbox</h2>
+      <p>Monthly newsletter with trade updates, product launches, and market intelligence.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); this.innerHTML='<p style=\'color:#C9A14A;font-weight:600;font-size:1.1rem;\'>&#10003; Thank you for subscribing!</p>'">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div>
+          <span class="footer-logo-main">Mahajan International</span>
+          <span class="footer-logo-sub">Import Export</span>
+          <p>Mahajan International Import Export is a trusted Indian export house based in Maharashtra, delivering premium quality bedsheets, towels, turmeric, chillies, rice, pulses, and spices to global markets. APEDA Registered | FSSAI Licensed | RCMC Holder</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/MahajanInternationalImportExport/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mahajan_international_imp_exp/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/mahajan-international-imports-exports/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://wa.me/917709170351" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Products -->
+        <div>
+          <h4>Our Products</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">Bedsheets</a></li>
+            <li><a href="products.html">Towels</a></li>
+            <li><a href="products.html">Turmeric</a></li>
+            <li><a href="products.html">Chillies</a></li>
+            <li><a href="products.html">Rice</a></li>
+            <li><a href="products.html">Pulses</a></li>
+            <li><a href="products.html">Spices</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i><span>18/272, Bank Colony, Jawahar Shastri Nagar, Behind Dudh Dairy, Umerga, Maharashtra &ndash; 413606</span></li>
+            <li><i class="fa-solid fa-phone"></i><span>+91 7709170351</span></li>
+            <li><i class="fa-solid fa-envelope"></i><span>somshankar945@gmail.com</span></li>
+            <li><i class="fa-solid fa-clock"></i><span>Mon&ndash;Sun: 9:00 AM &ndash; 6:00 PM IST</span></li>
+          </ul>
+        </div>
+
+        <!-- Certifications -->
+        <div>
+          <h4>Certifications</h4>
+          <div>
+            <span class="footer-cert-badge">APEDA Registered</span>
+            <span class="footer-cert-badge">FSSAI Licensed</span>
+            <span class="footer-cert-badge">RCMC Holder</span>
+          </div>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Mahajan International Import Export. All rights reserved. | GST: 27AJFPM0939A1ZJ | IEC: AJFPM0939A</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/917709170351?text=Hello%2C%20I%20am%20interested%20in%20your%20export%20products." class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Back to Top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({ duration: 700, once: true, offset: 60 });
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+      backTop.classList.toggle('show', window.scrollY > 400);
+    });
+
+    // Back to top
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Hamburger mobile menu
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Blog category filter
+    const catTags = document.querySelectorAll('.cat-tag');
+    const blogCards = document.querySelectorAll('#blogGrid .blog-card');
+
+    catTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        catTags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+        const selected = tag.getAttribute('data-category');
+        blogCards.forEach(card => {
+          if (selected === 'all' || card.getAttribute('data-category') === selected) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
