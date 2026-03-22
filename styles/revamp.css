@@ -2061,11 +2061,23 @@ input:focus, textarea:focus, select:focus {
   box-shadow: none !important;
 }
 
-/* ── Breadcrumb + page-hero: reduce top padding to eliminate excess blank space ── */
-/* Pages with breadcrumb bar already have 40px+ of space below the fixed header.
-   The page-hero's large padding-top (115px) creates too much dead dark area.
-   Bring content closer to the header on these inner pages. */
-.breadcrumb-bar + .page-hero,
-nav.breadcrumb-bar + .page-hero {
-  padding-top: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+/* ── Breadcrumb inside page-hero (products & contact inner pages) ── */
+/* Breadcrumb is now a child of .page-hero so the hero starts at y=0,
+   matching about.html. The breadcrumb is absolutely pinned right below
+   the fixed header; hero eyebrow/h1 appear at the normal padding-top. */
+.page-hero .breadcrumb-bar {
+  position: absolute !important;
+  top: 72px !important;   /* desktop header height */
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .page-hero .breadcrumb-bar {
+    top: 60px !important; /* mobile header height */
+  }
 }
