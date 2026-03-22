@@ -483,7 +483,7 @@
     .prod-section-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
     .prod-art {
@@ -934,6 +934,67 @@
       .container { padding: 0 16px; }
       .prod-section-img { min-height: 220px; }
     }
+
+    /* ===== Amazon-style Product Gallery ===== */
+    .prod-section-img {
+      width: min(100%, 460px);
+    }
+    .prod-gallery {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      width: 100%;
+      min-height: 360px;
+    }
+    .prod-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 8px 6px;
+      background: #f0f0f0;
+      width: 76px;
+      flex-shrink: 0;
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+    .prod-thumb {
+      width: 60px;
+      height: 60px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 0;
+      background: #fff;
+      flex-shrink: 0;
+      transition: border-color 0.2s;
+    }
+    .prod-thumb:hover { border-color: rgba(201,161,74,0.5); }
+    .prod-thumb.active { border-color: #C9A14A; }
+    .prod-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .prod-main-wrap {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+    }
+    .prod-main-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.25s ease;
+    }
+    @media (max-width: 600px) {
+      .prod-gallery { flex-direction: column-reverse; min-height: 280px; }
+      .prod-thumbs { flex-direction: row; width: 100%; height: 68px; overflow-x: auto; overflow-y: hidden; padding: 6px 8px; }
+      .prod-thumb { width: 54px; height: 54px; }
+    }
   </style>
   <link rel="stylesheet" href="styles/revamp.css">
   <link rel="stylesheet" href="styles/mobile.css">
@@ -1041,8 +1102,17 @@
     <section class="prod-section" id="bedsheets" aria-label="Cotton Bedsheets">
       <div class="prod-section-inner" data-aos="fade-up">
         <div class="prod-section-img">
-          <div class="prod-art prod-art-bedsheets" data-label="Bedsheets"></div>
-          <i class="fa-solid fa-bed prod-art-icon"></i>
+          <div class="prod-gallery">
+            <div class="prod-thumbs">
+              <button class="prod-thumb active" onclick="switchImg(this,'assets/images/products/bedsheet-1.jpg')"><img src="assets/images/products/bedsheet-1.jpg" alt="Bedsheets 1"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/bedsheet-2.jpg')"><img src="assets/images/products/bedsheet-2.jpg" alt="Bedsheets 2"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/bedsheet-3.jpg')"><img src="assets/images/products/bedsheet-3.jpg" alt="Bedsheets 3"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/bedsheet-4.jpg')"><img src="assets/images/products/bedsheet-4.jpg" alt="Bedsheets 4"></button>
+            </div>
+            <div class="prod-main-wrap">
+              <img src="assets/images/products/bedsheet-1.jpg" alt="Cotton Bedsheets">
+            </div>
+          </div>
         </div>
         <div class="prod-section-body">
           <span class="prod-section-cat-badge"><i class="fa-solid fa-bed"></i> Textiles</span>
@@ -1067,8 +1137,22 @@
     <section class="prod-section" id="towels" aria-label="Cotton Towels">
       <div class="prod-section-inner reverse" data-aos="fade-up">
         <div class="prod-section-img">
-          <div class="prod-art prod-art-towels" data-label="Towels"></div>
-          <i class="fa-solid fa-bath prod-art-icon"></i>
+          <div class="prod-gallery">
+            <div class="prod-thumbs">
+              <button class="prod-thumb active" onclick="switchImg(this,'assets/images/products/towel-1.jpg')"><img src="assets/images/products/towel-1.jpg" alt="Towels 1"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/towel-2.jpg')"><img src="assets/images/products/towel-2.jpg" alt="Towels 2"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/towel-3.jpg')"><img src="assets/images/products/towel-3.jpg" alt="Towels 3"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/towel-4.jpg')"><img src="assets/images/products/towel-4.jpg" alt="Towels 4"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/towel-5.jpg')"><img src="assets/images/products/towel-5.jpg" alt="Towels 5"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/towel-6.jpg')"><img src="assets/images/products/towel-6.jpg" alt="Towels 6"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/towel-7.jpg')"><img src="assets/images/products/towel-7.jpg" alt="Towels 7"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/towel-8.jpg')"><img src="assets/images/products/towel-8.jpg" alt="Towels 8"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/towel-9.jpg')"><img src="assets/images/products/towel-9.jpg" alt="Towels 9"></button>
+            </div>
+            <div class="prod-main-wrap">
+              <img src="assets/images/products/towel-1.jpg" alt="Cotton Towels">
+            </div>
+          </div>
         </div>
         <div class="prod-section-body">
           <span class="prod-section-cat-badge"><i class="fa-solid fa-bath"></i> Textiles</span>
@@ -1091,8 +1175,18 @@
     <section class="prod-section" id="turmeric" aria-label="Turmeric Export">
       <div class="prod-section-inner" data-aos="fade-up">
         <div class="prod-section-img">
-          <div class="prod-art prod-art-turmeric" data-label="Turmeric"></div>
-          <i class="fa-solid fa-mortar-pestle prod-art-icon"></i>
+          <div class="prod-gallery">
+            <div class="prod-thumbs">
+              <button class="prod-thumb active" onclick="switchImg(this,'assets/images/products/only-termeric-1.jpg')"><img src="assets/images/products/only-termeric-1.jpg" alt="Turmeric 1"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/only-termeric-2.jpg')"><img src="assets/images/products/only-termeric-2.jpg" alt="Turmeric 2"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/only-termeric-3.jpg')"><img src="assets/images/products/only-termeric-3.jpg" alt="Turmeric 3"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/only-termeric-4.jpg')"><img src="assets/images/products/only-termeric-4.jpg" alt="Turmeric 4"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/only-termeric-5.jpg')"><img src="assets/images/products/only-termeric-5.jpg" alt="Turmeric 5"></button>
+            </div>
+            <div class="prod-main-wrap">
+              <img src="assets/images/products/only-termeric-1.jpg" alt="Turmeric">
+            </div>
+          </div>
         </div>
         <div class="prod-section-body">
           <span class="prod-section-cat-badge"><i class="fa-solid fa-leaf"></i> Spices</span>
@@ -1116,8 +1210,18 @@
     <section class="prod-section" id="chillies" aria-label="Dry Red Chillies Export">
       <div class="prod-section-inner reverse" data-aos="fade-up">
         <div class="prod-section-img">
-          <div class="prod-art prod-art-chillies" data-label="Chillies"></div>
-          <i class="fa-solid fa-pepper-hot prod-art-icon"></i>
+          <div class="prod-gallery">
+            <div class="prod-thumbs">
+              <button class="prod-thumb active" onclick="switchImg(this,'assets/images/products/chilly-1.jpg')"><img src="assets/images/products/chilly-1.jpg" alt="Chillies 1"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/chilly-2.jpg')"><img src="assets/images/products/chilly-2.jpg" alt="Chillies 2"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/chilly-3.jpg')"><img src="assets/images/products/chilly-3.jpg" alt="Chillies 3"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/chilly-4.jpg')"><img src="assets/images/products/chilly-4.jpg" alt="Chillies 4"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/chilly-5.jpg')"><img src="assets/images/products/chilly-5.jpg" alt="Chillies 5"></button>
+            </div>
+            <div class="prod-main-wrap">
+              <img src="assets/images/products/chilly-1.jpg" alt="Dry Red Chillies">
+            </div>
+          </div>
         </div>
         <div class="prod-section-body">
           <span class="prod-section-cat-badge"><i class="fa-solid fa-fire"></i> Spices</span>
@@ -1140,8 +1244,19 @@
     <section class="prod-section" id="rice" aria-label="Basmati Rice Export">
       <div class="prod-section-inner" data-aos="fade-up">
         <div class="prod-section-img">
-          <div class="prod-art prod-art-rice" data-label="Rice"></div>
-          <i class="fa-solid fa-wheat-awn prod-art-icon"></i>
+          <div class="prod-gallery">
+            <div class="prod-thumbs">
+              <button class="prod-thumb active" onclick="switchImg(this,'assets/images/products/rice-1.png')"><img src="assets/images/products/rice-1.png" alt="Rice 1"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/rice-2.jpg')"><img src="assets/images/products/rice-2.jpg" alt="Rice 2"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/rice-3.jpg')"><img src="assets/images/products/rice-3.jpg" alt="Rice 3"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/rice-4.jpg')"><img src="assets/images/products/rice-4.jpg" alt="Rice 4"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/rice-5.jpg')"><img src="assets/images/products/rice-5.jpg" alt="Rice 5"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/rice-6.jpg')"><img src="assets/images/products/rice-6.jpg" alt="Rice 6"></button>
+            </div>
+            <div class="prod-main-wrap">
+              <img src="assets/images/products/rice-1.png" alt="Basmati Rice">
+            </div>
+          </div>
         </div>
         <div class="prod-section-body">
           <span class="prod-section-cat-badge"><i class="fa-solid fa-seedling"></i> Grains</span>
@@ -1167,8 +1282,17 @@
     <section class="prod-section" id="pulses" aria-label="Pulses Export">
       <div class="prod-section-inner reverse" data-aos="fade-up">
         <div class="prod-section-img">
-          <div class="prod-art prod-art-pulses" data-label="Pulses"></div>
-          <i class="fa-solid fa-seedling prod-art-icon"></i>
+          <div class="prod-gallery">
+            <div class="prod-thumbs">
+              <button class="prod-thumb active" onclick="switchImg(this,'assets/images/products/pulses-1.jpg')"><img src="assets/images/products/pulses-1.jpg" alt="Pulses 1"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/pulses-2.jpg')"><img src="assets/images/products/pulses-2.jpg" alt="Pulses 2"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/pulses-3.jpg')"><img src="assets/images/products/pulses-3.jpg" alt="Pulses 3"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/pulses-4.jpg')"><img src="assets/images/products/pulses-4.jpg" alt="Pulses 4"></button>
+            </div>
+            <div class="prod-main-wrap">
+              <img src="assets/images/products/pulses-1.jpg" alt="Pulses">
+            </div>
+          </div>
         </div>
         <div class="prod-section-body">
           <span class="prod-section-cat-badge"><i class="fa-solid fa-wheat-awn"></i> Grains</span>
@@ -1193,8 +1317,18 @@
     <section class="prod-section" id="spices" aria-label="Spices and Agri Export">
       <div class="prod-section-inner" data-aos="fade-up">
         <div class="prod-section-img">
-          <div class="prod-art prod-art-spices" data-label="Spices"></div>
-          <i class="fa-solid fa-jar prod-art-icon"></i>
+          <div class="prod-gallery">
+            <div class="prod-thumbs">
+              <button class="prod-thumb active" onclick="switchImg(this,'assets/images/products/termeric-spices-1.jpg')"><img src="assets/images/products/termeric-spices-1.jpg" alt="Spices 1"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/termeric-spices-2.jpg')"><img src="assets/images/products/termeric-spices-2.jpg" alt="Spices 2"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/termeric-spices-3.jpg')"><img src="assets/images/products/termeric-spices-3.jpg" alt="Spices 3"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/termeric-spices-4.jpg')"><img src="assets/images/products/termeric-spices-4.jpg" alt="Spices 4"></button>
+              <button class="prod-thumb" onclick="switchImg(this,'assets/images/products/termeric-spices-5.jpg')"><img src="assets/images/products/termeric-spices-5.jpg" alt="Spices 5"></button>
+            </div>
+            <div class="prod-main-wrap">
+              <img src="assets/images/products/termeric-spices-1.jpg" alt="Spices &amp; Agri">
+            </div>
+          </div>
         </div>
         <div class="prod-section-body">
           <span class="prod-section-cat-badge"><i class="fa-solid fa-mortar-pestle"></i> Spices &amp; Agri</span>
@@ -1458,6 +1592,20 @@
           : 'No match found. Try rice, pulses, turmeric, towels, bedsheets, or spices.';
       }
     });
+  }
+</script>
+
+<script>
+  function switchImg(thumb, src) {
+    const gallery = thumb.closest('.prod-gallery');
+    const mainImg = gallery.querySelector('.prod-main-wrap img');
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+      mainImg.src = src;
+      mainImg.style.opacity = '1';
+    }, 180);
+    gallery.querySelectorAll('.prod-thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
   }
 </script>
 

@@ -79,8 +79,39 @@
 
     /* Story section */
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .story-img { border-radius: 16px; overflow: hidden; height: 460px; box-shadow: 0 20px 60px rgba(11,31,58,0.15); }
-    .story-img img { width: 100%; height: 100%; object-fit: cover; }
+    .story-img-stack { position: relative; height: 500px; }
+    .story-img-main {
+      position: absolute;
+      right: 0; top: 0;
+      width: 84%; height: 86%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(11,31,58,0.2);
+    }
+    .story-img-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .story-img-accent {
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 50%; height: 54%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 12px 36px rgba(11,31,58,0.18);
+    }
+    .story-img-accent img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .story-img-badge {
+      position: absolute;
+      right: 0; bottom: 28px;
+      background: linear-gradient(135deg, #C9A14A, #8B6914);
+      color: #fff;
+      border-radius: 14px;
+      padding: 0.9rem 1.3rem;
+      text-align: center;
+      box-shadow: 0 8px 28px rgba(201,161,74,0.4);
+      min-width: 110px;
+    }
+    .story-img-badge strong { display: block; font-size: 1.9rem; font-weight: 700; font-family: 'Playfair Display', serif; line-height: 1; }
+    .story-img-badge small { font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.92; }
     .story-text .section-label { display: block; margin-bottom: 0.5rem; }
     .story-text p { color: #555; line-height: 1.8; margin: 1rem 0; font-size: 1rem; }
     .story-text .highlight { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #0B1F3A; font-style: italic; border-left: 3px solid #C9A14A; padding-left: 1.2rem; margin: 1.5rem 0; }
@@ -113,7 +144,11 @@
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
     .team-card { background: #fff; border-radius: 16px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 4px 20px rgba(11,31,58,0.07); transition: transform 0.3s; }
     .team-card:hover { transform: translateY(-4px); }
-    .team-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #C9A14A, #8B6914); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff; font-weight: 700; }
+    .team-avatar { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.2rem; border: 3px solid #C9A14A; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .team-linkedin { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem; padding: 0.45rem 1rem; border-radius: 999px; background: #0A66C2; color: #fff; font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .team-linkedin:hover { background: #004182; }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .team-card h3 { font-family: 'Playfair Display', serif; color: #0B1F3A; font-size: 1.1rem; margin-bottom: 0.3rem; }
     .team-title { color: #C9A14A; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
     .team-card p { color: #666; font-size: 0.9rem; line-height: 1.6; }
@@ -203,6 +238,7 @@
     @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr 1fr; } }
     @media (max-width: 768px) {
       .story-grid, .mv-grid, .reach-grid { grid-template-columns: 1fr; }
+      .story-img-stack { height: 340px; }
       .values-grid, .team-grid { grid-template-columns: 1fr 1fr; }
       .stats-strip-grid { grid-template-columns: 1fr 1fr; }
       .hamburger { display: flex; }
@@ -248,7 +284,7 @@
   <main>
 
     <!-- Page Hero -->
-    <section class="page-hero" style="background: linear-gradient(135deg, rgba(11,31,58,0.90) 0%, rgba(11,31,58,0.70) 100%), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&q=90&fit=crop') center/cover no-repeat; padding: 8rem 0 5rem; text-align: center; color: #fff;">
+    <section class="page-hero" style="background: linear-gradient(135deg, rgba(11,31,58,0.90) 0%, rgba(11,31,58,0.70) 100%), url('assets/images/about/about-1.jpg') center/cover no-repeat; padding: 8rem 0 5rem; text-align: center; color: #fff;">
       <div class="container">
         <p class="section-label" data-aos="fade-down" style="color:#C9A14A">Our Story</p>
         <h1 data-aos="fade-up" style="font-family:'Playfair Display',serif; font-size:clamp(2.5rem,6vw,4.5rem); color:#fff; text-shadow:0 4px 24px rgba(0,0,0,0.4)">About Mahajan<br><em style="color:#C9A14A; font-style:italic">International</em></h1>
@@ -268,12 +304,17 @@
             <p>We believe in conducting business with complete transparency, integrity, and professionalism. Our efficient logistics network ensures timely delivery, making us a reliable partner for clients worldwide.</p>
             <p>At Mahajan International Import Export, our goal is simple — to represent the richness of Indian products on a global stage while building long-term, trustworthy relationships with our customers.</p>
           </div>
-          <div class="story-img" data-aos="fade-left" data-aos-delay="100">
-            <img
-              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=85&fit=crop"
-              alt="Mahajan International team in a business meeting"
-              loading="lazy"
-            />
+          <div class="story-img-stack" data-aos="fade-left" data-aos-delay="100">
+            <div class="story-img-main">
+              <img src="assets/images/about/about-1.jpg" alt="Indian agriculture and farming" loading="lazy">
+            </div>
+            <div class="story-img-accent">
+              <img src="assets/images/about/about-2.jpg" alt="Indian export products" loading="lazy">
+            </div>
+            <div class="story-img-badge">
+              <strong>25+</strong>
+              <small>Years of Agricultural Experience</small>
+            </div>
           </div>
         </div>
       </div>
@@ -379,18 +420,20 @@
 
           <!-- Somshankar Mahajan -->
           <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-avatar" aria-label="Initials SM">SM</div>
+            <div class="team-avatar"><img src="assets/images/team/somshankar-mahajan.jpg" alt="Somshankar Mahajan"></div>
             <h3>Somshankar Mahajan</h3>
             <p class="team-title">Founder &amp; Managing Director</p>
             <p>With over 25 years of deep-rooted experience in agriculture and trade, Somshankar Mahajan founded Mahajan International with a clear vision — to bring the finest Indian products to global markets. His direct connections with farmers and manufacturers across Maharashtra and India form the backbone of our quality and sourcing strength.</p>
+            <a href="https://www.linkedin.com/in/somshankar-mahajan/" target="_blank" rel="noopener noreferrer" class="team-linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
           </div>
 
           <!-- Shailesh Mahajan -->
           <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-avatar" aria-label="Initials SM">SM</div>
+            <div class="team-avatar"><img src="assets/images/team/shailesh-mahajan.jpg" alt="Shailesh Mahajan"></div>
             <h3>Shailesh Mahajan</h3>
             <p class="team-title">Business Advisor</p>
             <p>An MBA graduate with 10+ years of experience in operations and supply chain management, Shailesh brings strategic thinking and operational efficiency to the company. His expertise ensures smooth logistics, process optimisation, and sustainable business growth.</p>
+            <a href="https://www.linkedin.com/in/shailesh-mahajan/" target="_blank" rel="noopener noreferrer" class="team-linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
           </div>
 
         </div>
@@ -475,7 +518,7 @@
 
           <div class="reach-img" data-aos="fade-right">
             <img
-              src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1200&q=85&fit=crop"
+              src="assets/images/about/about-2.jpg"
               alt="World map representing Mahajan International's global reach"
               loading="lazy"
             />

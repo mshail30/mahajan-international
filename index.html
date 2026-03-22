@@ -15,14 +15,14 @@
   <meta property="og:title" content="Mahajan International Import Export | Premium Indian Products">
   <meta property="og:description" content="Established in 2025. India's trusted export company based in Umerga, Maharashtra. APEDA Registered exporter of bedsheets, towels, turmeric, chillies, rice, pulses and spices.">
   <meta property="og:url" content="https://www.mahajaninternational.com/">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80&fit=crop">
+  <meta property="og:image" content="assets/images/blog/blog-featured.jpg">
   <meta property="og:site_name" content="Mahajan International Import Export">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mahajan International Import Export | Premium Indian Products">
   <meta name="twitter:description" content="Established in 2025. India's trusted export company based in Umerga, Maharashtra. APEDA Registered exporter of bedsheets, towels, turmeric, chillies, rice, pulses and spices.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80&fit=crop">
+  <meta name="twitter:image" content="assets/images/blog/blog-featured.jpg">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -184,6 +184,7 @@
       min-height: 82vh;
       display: grid;
       grid-template-columns: 54% 46%;
+      align-items: stretch;
       background: #060D1F;
       position: relative;
       overflow: hidden;
@@ -462,69 +463,70 @@
     .hero-right {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       position: relative;
       z-index: 2;
-      padding: 6rem 2rem 2.8rem 1rem;
-      gap: 0.9rem;
+      padding: 5rem 1.2rem 1.2rem 0.4rem;
+      align-self: stretch;
     }
     .hero-right::after { content: none; }
     .hero-illustration-wrap {
-      width: min(100%, 760px);
+      flex: 1;
+      min-height: 0;
+      width: 100%;
       position: relative;
-      isolation: isolate;
-      border-radius: 24px;
-      overflow: clip;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 12px 48px rgba(0,0,0,0.3);
-      background: linear-gradient(145deg, rgba(6,13,31,0.88) 0%, rgba(12,31,58,0.78) 100%);
-      padding: 12px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 56px rgba(0,0,0,0.35);
     }
     .hero-offer-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      grid-template-rows: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      min-height: 460px;
+      grid-template-columns: 1.25fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
     }
     .offer-tile {
       position: relative;
       overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.16);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
     }
     .offer-tile img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.8s ease;
+      display: block;
+      transition: transform 0.9s ease;
     }
     .offer-tile::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(3,10,22,0.04) 0%, rgba(3,10,22,0.72) 88%);
+      background: linear-gradient(175deg, rgba(3,10,22,0) 30%, rgba(3,10,22,0.78) 100%);
       pointer-events: none;
+      z-index: 1;
     }
-    .offer-tile:hover img {
-      transform: scale(1.06);
+    .offer-tile:hover img { transform: scale(1.07); }
+    .offer-tile:hover {
+      box-shadow: 0 0 0 2px #C9A14A, 0 0 28px 6px rgba(201,161,74,0.45);
+      z-index: 2;
+    }
+    .offer-split-half:hover {
+      box-shadow: inset 0 0 0 2px #C9A14A, 0 0 28px 6px rgba(201,161,74,0.45);
+      z-index: 2;
     }
     .offer-tile span {
       position: absolute;
-      left: 12px;
-      bottom: 12px;
+      left: 14px;
+      bottom: 14px;
       z-index: 2;
       color: #fff;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       font-weight: 700;
-      background: rgba(6, 16, 36, 0.58);
-      border: 1px solid rgba(255,255,255,0.24);
-      border-radius: 999px;
-      padding: 6px 10px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
     .offer-tile small {
       position: absolute;
@@ -542,47 +544,47 @@
       padding: 5px 8px;
     }
     .offer-tile-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      padding: 8px;
-      background: rgba(8, 21, 40, 0.82);
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
     }
     .offer-tile-split::before { display: none; }
     .offer-split-half {
       position: relative;
       overflow: hidden;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.2);
+      flex: 1;
+    }
+    .offer-split-half:first-child {
+      border-right: 2px solid rgba(255,255,255,0.12);
     }
     .offer-split-half::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(3,10,22,0.04) 0%, rgba(3,10,22,0.72) 88%);
+      background: linear-gradient(175deg, rgba(3,10,22,0) 30%, rgba(3,10,22,0.78) 100%);
       pointer-events: none;
       z-index: 1;
     }
     .offer-tile-split .offer-split-half img {
       width: 100%;
       height: 100%;
-      min-height: 170px;
       object-fit: cover;
       display: block;
-      transition: transform 0.8s ease;
+      transition: transform 0.9s ease;
     }
     .offer-tile-split .offer-split-half span {
       position: absolute;
       left: 10px;
-      bottom: 10px;
+      bottom: 12px;
       z-index: 2;
-      font-size: 0.64rem;
-      letter-spacing: 0.09em;
-      padding: 5px 9px;
+      color: #fff;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
-    .offer-tile-split:hover .offer-split-half img {
-      transform: scale(1.06);
-    }
+    .offer-tile-split:hover .offer-split-half img { transform: scale(1.07); }
     /* CSS Art: Hero offer tile icons */
     .offer-tile-icon {
       position: absolute;
@@ -667,14 +669,104 @@
       min-height: 130px;
     }
     .offer-tile-a { grid-row: 1 / span 2; }
-    .hero-illustration { display: none !important; }
-    .hero-metric-stack { display: none !important; }
-    .hero-offer-pills {
-      margin-top: 10px;
+
+    /* ── Hero Hover Preview Panel ── */
+    .hero-preview {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.32s ease;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .hero-preview.active {
+      opacity: 1;
+      pointer-events: none; /* still let clicks pass through to the tile */
+    }
+    .hero-preview-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.04);
+      transition: transform 0.5s ease;
+    }
+    .hero-preview.active .hero-preview-img { transform: scale(1); }
+    .hero-preview::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(3,10,22,0.95) 0%,
+        rgba(3,10,22,0.55) 45%,
+        rgba(3,10,22,0.15) 100%);
+      pointer-events: none;
+    }
+    .hero-preview-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 2rem 2.2rem;
+      z-index: 2;
+      transform: translateY(10px);
+      transition: transform 0.35s ease;
+    }
+    .hero-preview.active .hero-preview-body { transform: translateY(0); }
+    .hero-preview-cat {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C9A14A;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+    .hero-preview-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 0.9rem;
+      line-height: 1.2;
+    }
+    .hero-preview-specs {
+      list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
+      margin: 0 0 1.2rem;
+      padding: 0;
     }
+    .hero-preview-specs li {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      padding: 4px 13px;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.88);
+      backdrop-filter: blur(4px);
+    }
+    .hero-preview-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.4rem;
+      background: #C9A14A;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-preview-cta:hover { background: #8B6914; transform: translateX(3px); box-shadow: 0 0 16px rgba(201,161,74,0.5); }
+    .hero-illustration { display: none !important; }
+    .hero-metric-stack { display: none !important; }
+    .hero-offer-pills { display: none !important; }
     .hero-offer-pill {
       font-size: 0.68rem;
       letter-spacing: 0.1em;
@@ -1322,71 +1414,26 @@
       border-radius: 12px;
       border: 1px solid rgba(11,31,58,0.12);
       flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
     }
-    .rail-art i {
-      font-size: 1.7rem;
-      color: rgba(255,255,255,0.55);
+    .rail-art {
+      background: #fff;
     }
-    .rail-art-bedsheets {
-      background:
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 8px, transparent 8px 18px),
-        linear-gradient(145deg, #2048A0 0%, #0E2660 55%, #060F28 100%);
-    }
-    .rail-art-towels {
-      background:
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 3px, transparent 3px 8px),
-        radial-gradient(circle at 24% 24%, rgba(80,196,255,0.24), transparent 36%),
-        linear-gradient(145deg, #0E5F83 0%, #083D56 55%, #041E2B 100%);
-    }
-    .rail-art-turmeric {
-      background:
-        radial-gradient(circle at 30% 38%, rgba(250,196,60,0.55), transparent 36%),
-        linear-gradient(145deg, #7A3E0C 0%, #3A1A06 55%, #150903 100%);
-    }
-
-    .tile-art {
+    .rail-art img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .tile-img {
       position: absolute;
       inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tile-art i {
-      font-size: 2.6rem;
-      color: rgba(255,255,255,0.30);
-      position: relative;
-      z-index: 2;
-      margin-bottom: 28px;
-    }
-    .tile-art-chillies {
-      background:
-        repeating-linear-gradient(-40deg, rgba(255,255,255,0.04) 0 10px, transparent 10px 22px),
-        radial-gradient(circle at 70% 28%, rgba(249,99,78,0.28), transparent 32%),
-        linear-gradient(145deg, #8A1F1B 0%, #4A1211 60%, #180707 100%);
-    }
-    .tile-art-rice {
-      background:
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 4px, transparent 4px 12px),
-        radial-gradient(circle at 30% 30%, rgba(220,246,173,0.24), transparent 34%),
-        linear-gradient(145deg, #2E5D39 0%, #173826 60%, #091710 100%);
-    }
-    .tile-art-pulses {
-      background:
-        radial-gradient(circle at 22% 24%, rgba(240,186,99,0.30), transparent 30%),
-        radial-gradient(circle at 74% 30%, rgba(225,121,67,0.24), transparent 30%),
-        linear-gradient(145deg, #5A3D24 0%, #2F2114 60%, #130B06 100%);
-    }
-    .tile-art-spices {
-      background:
-        radial-gradient(circle at 22% 24%, rgba(250,205,93,0.30), transparent 32%),
-        radial-gradient(circle at 78% 24%, rgba(250,129,54,0.24), transparent 30%),
-        radial-gradient(circle at 52% 74%, rgba(145,202,90,0.22), transparent 34%),
-        linear-gradient(145deg, #3D3020 0%, #24190E 60%, #0E0A06 100%);
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #fff;
     }
     /* ===== Export Markets ===== */
     .markets-section {
@@ -1547,9 +1594,9 @@
         </div>
       </div>
 
-      <div class="hero-right" aria-label="Farm, spice, textile and grain export illustration">
+      <div class="hero-right" aria-label="Product offering showcase">
         <div class="hero-illustration-wrap" data-aos="fade-left" data-aos-delay="120">
-          <svg class="hero-illustration" viewBox="0 0 900 620" role="img" aria-label="Illustrated Indian export landscape with fields, spices, fabric and grain">
+          <svg class="hero-illustration" viewBox="0 0 900 620" role="img" aria-label="Illustrated Indian export landscape with fields, spices, fabric and grain" style="display:none">
             <defs>
               <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#0F2340"/>
@@ -1609,22 +1656,37 @@
               <path d="M6 82 L-22 102"/>
             </g>
           </svg>
+          <!-- Hover Preview Panel -->
+          <div class="hero-preview" id="heroPreview" aria-hidden="true">
+            <img class="hero-preview-img" id="heroPreviewImg" src="" alt="">
+            <div class="hero-preview-body">
+              <span class="hero-preview-cat" id="heroPreviewCat"></span>
+              <h3 class="hero-preview-title" id="heroPreviewTitle"></h3>
+              <ul class="hero-preview-specs" id="heroPreviewSpecs"></ul>
+              <a class="hero-preview-cta" id="heroPreviewCta" href="">View Full Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
           <div class="hero-offer-grid" role="img" aria-label="Product offering showcase">
-  <a href="products.html#bedsheets" class="offer-tile offer-tile-a offer-art-bedsheets" aria-label="View bedsheets">
-    <i class="fa-solid fa-bed offer-tile-icon"></i>
+  <a href="products.html#bedsheets" class="offer-tile offer-tile-a"
+     onmouseenter="showHeroPreview('bedsheets')" onmouseleave="hideHeroPreview()" aria-label="View bedsheets">
+    <img src="assets/images/hero/bedsheet-2.jpg" alt="Premium Bedsheets">
     <span>Premium Bedsheets</span>
   </a>
-  <a href="products.html#turmeric" class="offer-tile offer-art-turmeric" aria-label="View turmeric">
-    <i class="fa-solid fa-mortar-pestle offer-tile-icon"></i>
+  <a href="products.html#turmeric" class="offer-tile"
+     onmouseenter="showHeroPreview('turmeric')" onmouseleave="hideHeroPreview()" aria-label="View turmeric">
+    <img src="assets/images/hero/termeric-spices-4.jpg" alt="Turmeric &amp; Spices">
     <span>Turmeric &amp; Spices</span>
   </a>
-  <a href="products.html#rice" class="offer-tile offer-tile-split offer-art-grains" aria-label="View rice and pulses">
-    <div class="offer-split-inner offer-art-rice-half">
-      <i class="fa-solid fa-wheat-awn osi"></i>
+  <a href="products.html#rice" class="offer-tile offer-tile-split" aria-label="View rice and pulses">
+    <div class="offer-split-half"
+         onmouseenter="showHeroPreview('rice')" onmouseleave="hideHeroPreview()">
+      <img src="assets/images/hero/rice-1.png" alt="Basmati Rice">
       <span>Basmati Rice</span>
     </div>
-    <div class="offer-split-inner offer-art-pulses-half">
-      <i class="fa-solid fa-seedling osi"></i>
+    <div class="offer-split-half"
+         onmouseenter="showHeroPreview('pulses')" onmouseleave="hideHeroPreview()">
+      <img src="assets/images/hero/pulses-2.jpg" alt="Pulses">
       <span>Pulses</span>
     </div>
   </a>
@@ -1761,21 +1823,21 @@
 
           <div class="featured-rail">
             <a href="products.html#bedsheets" class="featured-rail-item" data-aos="fade-up" data-aos-delay="120">
-              <div class="rail-art rail-art-bedsheets"><i class="fa-solid fa-bed"></i></div>
+              <div class="rail-art"><img src="assets/images/products/bedsheet-1.jpg" alt="Bedsheets"></div>
               <div>
                 <b>Bedsheets</b>
                 <span>Soft cotton weave with custom sizes and print options.</span>
               </div>
             </a>
             <a href="products.html#towels" class="featured-rail-item" data-aos="fade-up" data-aos-delay="160">
-              <div class="rail-art rail-art-towels"><i class="fa-solid fa-bath"></i></div>
+              <div class="rail-art"><img src="assets/images/products/towel-1.jpg" alt="Towels"></div>
               <div>
                 <b>Towels</b>
                 <span>Hospitality-grade absorbency with private label readiness.</span>
               </div>
             </a>
             <a href="products.html#turmeric" class="featured-rail-item" data-aos="fade-up" data-aos-delay="200">
-              <div class="rail-art rail-art-turmeric"><i class="fa-solid fa-mortar-pestle"></i></div>
+              <div class="rail-art"><img src="assets/images/products/only-termeric-1.jpg" alt="Turmeric"></div>
               <div>
                 <b>Turmeric</b>
                 <span>High-curcumin grades from verified farm clusters.</span>
@@ -1785,22 +1847,22 @@
 
           <div class="featured-tile-grid">
             <a href="products.html#chillies" class="featured-tile" data-aos="fade-up" data-aos-delay="110">
-              <div class="tile-art tile-art-chillies"><i class="fa-solid fa-pepper-hot"></i></div>
+              <img src="assets/images/products/chilly-1.jpg" alt="Chillies" class="tile-img">
               <b>Chillies</b>
               <span>Guntur, Andhra Pradesh</span>
             </a>
             <a href="products.html#rice" class="featured-tile" data-aos="fade-up" data-aos-delay="140">
-              <div class="tile-art tile-art-rice"><i class="fa-solid fa-wheat-awn"></i></div>
+              <img src="assets/images/products/rice-2.jpg" alt="Rice" class="tile-img">
               <b>Rice</b>
               <span>Pan-India</span>
             </a>
             <a href="products.html#pulses" class="featured-tile" data-aos="fade-up" data-aos-delay="170">
-              <div class="tile-art tile-art-pulses"><i class="fa-solid fa-seedling"></i></div>
+              <img src="assets/images/products/pulses-1.jpg" alt="Pulses" class="tile-img">
               <b>Pulses</b>
               <span>Pan-India</span>
             </a>
             <a href="products.html#spices" class="featured-tile" data-aos="fade-up" data-aos-delay="200">
-              <div class="tile-art tile-art-spices"><i class="fa-solid fa-jar"></i></div>
+              <img src="assets/images/products/termeric-spices-1.jpg" alt="Spices &amp; Agri" class="tile-img">
               <b>Spices &amp; Agri</b>
               <span>Karnataka, Rajasthan, Kerala</span>
             </a>
@@ -1815,7 +1877,7 @@
           <!-- Card 1: Bedsheets -->
           <div class="card" data-aos="fade-up" data-aos-delay="100">
             <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80&fit=crop" alt="Bedsheets" loading="lazy">
+              <img src="assets/images/products/bedsheet-2.jpg" alt="Bedsheets" loading="lazy">
             </div>
             <div class="card-body">
               <span class="card-tag">Solapur, Maharashtra</span>
@@ -1828,7 +1890,7 @@
           <!-- Card 2: Towels -->
           <div class="card" data-aos="fade-up" data-aos-delay="150">
             <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&q=80&fit=crop" alt="Towels" loading="lazy">
+              <img src="assets/images/products/towel-3.jpg" alt="Towels" loading="lazy">
             </div>
             <div class="card-body">
               <span class="card-tag">Solapur, Maharashtra</span>
@@ -1841,7 +1903,7 @@
           <!-- Card 3: Turmeric -->
           <div class="card" data-aos="fade-up" data-aos-delay="200">
             <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=600&q=80&fit=crop" alt="Turmeric" loading="lazy">
+              <img src="assets/images/products/only-termeric-3.jpg" alt="Turmeric" loading="lazy">
             </div>
             <div class="card-body">
               <span class="card-tag">Solapur &amp; Sangli, Maharashtra</span>
@@ -1854,7 +1916,7 @@
           <!-- Card 4: Chillies -->
           <div class="card" data-aos="fade-up" data-aos-delay="100">
             <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=600&q=80&fit=crop" alt="Chillies" loading="lazy">
+              <img src="assets/images/products/chilly-3.jpg" alt="Chillies" loading="lazy">
             </div>
             <div class="card-body">
               <span class="card-tag">Guntur, Andhra Pradesh</span>
@@ -1867,7 +1929,7 @@
           <!-- Card 5: Rice -->
           <div class="card" data-aos="fade-up" data-aos-delay="150">
             <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1536304993881-ff86e0c9c6a3?w=600&q=80&fit=crop" alt="Rice" loading="lazy">
+              <img src="assets/images/products/rice-3.jpg" alt="Rice" loading="lazy">
             </div>
             <div class="card-body">
               <span class="card-tag">Pan-India</span>
@@ -1880,7 +1942,7 @@
           <!-- Card 6: Pulses -->
           <div class="card" data-aos="fade-up" data-aos-delay="200">
             <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1612257999756-7a12e3bfaaef?w=600&q=80&fit=crop" alt="Pulses" loading="lazy">
+              <img src="assets/images/products/pulses-2.jpg" alt="Pulses" loading="lazy">
             </div>
             <div class="card-body">
               <span class="card-tag">Pan-India</span>
@@ -1893,7 +1955,7 @@
           <!-- Card 7: Spices & Agri -->
           <div class="card" data-aos="fade-up" data-aos-delay="100">
             <div class="card-img">
-              <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80&fit=crop" alt="Spices and Agri Products" loading="lazy">
+              <img src="assets/images/products/termeric-spices-3.jpg" alt="Spices and Agri Products" loading="lazy">
             </div>
             <div class="card-body">
               <span class="card-tag">Karnataka, Rajasthan, Kerala</span>
@@ -2217,6 +2279,54 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
+    // ---- Hero Tile Hover Preview ----
+    const heroProducts = {
+      bedsheets: {
+        img: 'assets/images/hero/bedsheet-2.jpg',
+        cat: 'Textiles · Solapur, Maharashtra',
+        title: 'Premium Cotton Bedsheets',
+        specs: ['200–600 Thread Count', 'Single to King Size', 'Custom Prints & Branding', 'MOQ: 300–500 pcs'],
+        url: 'products.html#bedsheets'
+      },
+      turmeric: {
+        img: 'assets/images/hero/termeric-spices-4.jpg',
+        cat: 'Spices · Solapur & Sangli, Maharashtra',
+        title: 'Organic Turmeric & Spices',
+        specs: ['3–5% Curcumin Content', 'Whole / Finger / Powder', 'APEDA & FSSAI Certified', 'MOQ: 1 Metric Ton'],
+        url: 'products.html#turmeric'
+      },
+      rice: {
+        img: 'assets/images/hero/rice-1.png',
+        cat: 'Grains · Pan-India',
+        title: 'Basmati Rice',
+        specs: ['8.2mm+ Grain Length', '1121, Pusa, Traditional', 'Raw / Steam / Sella', 'MOQ: 1 Metric Ton'],
+        url: 'products.html#rice'
+      },
+      pulses: {
+        img: 'assets/images/hero/pulses-2.jpg',
+        cat: 'Grains · Pan-India',
+        title: 'Premium Pulses',
+        specs: ['Toor, Chana, Moong, Masoor', 'Whole / Split / Polished', 'Sortex Cleaned, Export Grade', 'MOQ: 1 Metric Ton'],
+        url: 'products.html#pulses'
+      }
+    };
+
+    function showHeroPreview(key) {
+      const p = heroProducts[key];
+      if (!p) return;
+      document.getElementById('heroPreviewImg').src = p.img;
+      document.getElementById('heroPreviewImg').alt = p.title;
+      document.getElementById('heroPreviewCat').textContent = p.cat;
+      document.getElementById('heroPreviewTitle').textContent = p.title;
+      document.getElementById('heroPreviewSpecs').innerHTML = p.specs.map(s => `<li>${s}</li>`).join('');
+      document.getElementById('heroPreviewCta').href = p.url;
+      document.getElementById('heroPreview').classList.add('active');
+    }
+
+    function hideHeroPreview() {
+      document.getElementById('heroPreview').classList.remove('active');
+    }
+
     // ---- AOS Init ----
     AOS.init({
       duration: 700,
